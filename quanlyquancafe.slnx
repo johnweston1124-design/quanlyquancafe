@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="quanlyquancafe.csproj" />
+  <Project Path="C:/Users/Dell/source/repos/quanlyquancafe.BLL/quanlyquancafe.BLL.csproj" Id="020a62fb-7c2d-4e89-956f-1301521af756" />
+  <Project Path="C:/Users/Dell/source/repos/quanlyquancafe.DAL/quanlyquancafe.DAL.csproj" Id="d7b3d24b-0766-4e74-be52-d348c9408a38" />
+  <Project Path="C:/Users/Dell/source/repos/quanlyquancafe.DTO/quanlyquancafe.DTO.csproj" Id="b0fe323f-4677-4968-9cc3-dcbe259372c2" />
+  <Project Path="quanlyquancafe.GUI.csproj" Id="c89f0a26-3624-47d4-9bed-95b207f8148f" />
 </Solution>
