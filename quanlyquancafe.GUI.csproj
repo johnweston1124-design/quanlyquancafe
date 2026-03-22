@@ -69,6 +69,9 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -90,6 +93,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Dell\source\repos\quanlyquancafe.BLL\quanlyquancafe.BLL.csproj">
+      <Project>{020a62fb-7c2d-4e89-956f-1301521af756}</Project>
+      <Name>quanlyquancafe.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Dell\source\repos\quanlyquancafe.DTO\quanlyquancafe.DTO.csproj">
+      <Project>{b0fe323f-4677-4968-9cc3-dcbe259372c2}</Project>
+      <Name>quanlyquancafe.DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

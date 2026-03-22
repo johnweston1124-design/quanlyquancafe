@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using quanlyquancafe.BLL;
+using quanlyquancafe.DTO;
 
 namespace quanlyquancafe
 {
@@ -32,7 +34,7 @@ namespace quanlyquancafe
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
-    string.IsNullOrWhiteSpace(txtPassword.Text))
+                string.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!",
                     "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -50,7 +52,10 @@ namespace quanlyquancafe
             if (user != null)
             {
                 this.Hide();
-                new frmMain(user).Show();
+                if (user.Role == "Admin")
+                    new frmMain(user).Show();       // Admin: full quyền
+                else
+                    new frmMain(user).Show();       // Staff: giới hạn quyền (làm sau)
             }
             else
             {

@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using quanlyquancafe.DTO;
 
 namespace quanlyquancafe
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+        public frmMain(UserDTO user)
         {
             InitializeComponent();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
