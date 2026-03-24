@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CoffeeShop.DAL.Repositories;
+using quanlyquancafe;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using quanlyquancafe;
 
 namespace quanlyquancafe
 {
@@ -30,6 +31,7 @@ namespace quanlyquancafe
             txtCategoryID.BorderStyle = BorderStyle.FixedSingle;
             txtCategoryName.BorderStyle = BorderStyle.FixedSingle;
             SetupPlaceholder();
+            LoadData();
         }
         private void SetupPlaceholder()
         {
@@ -55,6 +57,16 @@ namespace quanlyquancafe
         private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        private void LoadData()
+        {
+            var repo = new ProductRepository();
+            dgvData.DataSource = repo.GetAllAvailable(); // hoặc GetAll()
+        }
+
+        private void frmCategory_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

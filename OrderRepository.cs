@@ -214,6 +214,27 @@ WHERE OrderId = @OrderId
             });
         }
 
+        public DataTable GetAll()
+        {
+            const string sql = @"
+        SELECT 
+            o.OrderId,
+            o.CreatedAt,
+            e.FullName AS EmployeeName,
+            t.TableName,
+            o.FinalAmount,
+            o.OrderStatus
+        FROM Orders o
+        INNER JOIN Employees e ON e.EmployeeId = o.EmployeeId
+        INNER JOIN CafeTables t ON t.TableId = o.TableId
+        ORDER BY o.CreatedAt DESC";
+
+            return DataProvider.Instance.ExecuteQuery(
+                sql,
+                CommandType.Text,
+                null);
+        }
+
         public int MarkAsPaid(int orderId, decimal discountAmount, decimal vatAmount, decimal surchargeAmount, string notes = null)
         {
             if (orderId <= 0)

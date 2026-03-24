@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeShop.DAL.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,7 @@ namespace  quanlyquancafe
             cboStatus.SelectedIndex = 0;
             txtTableName.Text = "Nhập tên bàn (Vd: Bàn 01)...";
             txtTableName.ForeColor = Color.Gray;
-
+            LoadData();
             txtTableName.Enter += (s, e) => {
                 if (txtTableName.Text == "Nhập tên bàn (Vd: Bàn 01)...")
                 {
@@ -42,6 +43,32 @@ namespace  quanlyquancafe
         }
 
         private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void LoadData()
+        {
+            var repo = new ProductRepository();
+            dgvData.DataSource = repo.GetAllAvailable(); // hoặc GetAll()
+        }
+
+        private void frmTable_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlHeader_Paint(object sender, PaintEventArgs e)
         {
 
         }

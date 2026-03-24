@@ -53,6 +53,7 @@
             this.dgvOrderDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrderDetail.Size = new System.Drawing.Size(500, 390);
             this.dgvOrderDetail.TabIndex = 0;
+            this.dgvOrderDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetail_CellContentClick);
             // 
             // pnlRight
             // 
@@ -104,6 +105,7 @@
             this.flpProductList.Name = "flpProductList";
             this.flpProductList.Size = new System.Drawing.Size(300, 366);
             this.flpProductList.TabIndex = 1;
+            this.flpProductList.Paint += new System.Windows.Forms.PaintEventHandler(this.flpProductList_Paint);
             // 
             // cboCategorySelect
             // 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeShop.DAL.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,9 +31,26 @@ namespace  quanlyquancafe
             btnPrintInvoice.FlatAppearance.BorderSize = 0;
             dtpToDate.Value = DateTime.Now;
             dtpFromDate.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            LoadData();
         }
 
         private void pnlBottom_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LoadData()
+        {
+            var repo = new ProductRepository();
+            dgvInvoices.DataSource = repo.GetAllAvailable(); // hoặc GetAll()
+        }
+
+        private void frmInvoiceHistory_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void dgvInvoices_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

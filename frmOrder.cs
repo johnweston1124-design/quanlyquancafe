@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CoffeeShop.DAL.Repositories;
+using quanlyquancafe.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +29,22 @@ namespace quanlyquancafe
         }
 
         private void frmOrder_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void dgvOrderDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void LoadData()
+        {
+            var repo = new OrderRepository();
+            dgvOrderDetail.DataSource = repo.GetAll(); // hoặc GetAll()
+        }
+
+        private void flpProductList_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeShop.DAL.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,7 @@ namespace quanlyquancafe
             btnAdd.BackColor = ThemeHelper.PrimaryColor;
             btnEdit.BackColor = ThemeHelper.PrimaryColor;
             btnSave.BackColor = ThemeHelper.PrimaryColor;
+            LoadData();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -43,6 +45,22 @@ namespace quanlyquancafe
         }
 
         private void pnlControl_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LoadData()
+        {
+            var repo = new ProductRepository();
+            dgvData.DataSource = repo.GetAllAvailable(); // hoặc GetAll()
+        }
+
+        private void frmProduct_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
         {
 
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeShop.DAL.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,7 @@ namespace quanlyquancafe
             {
                 FormatHelper.ConfigDataGridView(dgvData);
             }
+            LoadData();
         }
         private void StyleButton(Button btn, Color color)
         {
@@ -40,6 +42,21 @@ namespace quanlyquancafe
         private void grpEmployeeInfo_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void LoadData()
+        {
+            var repo = new ProductRepository();
+            dgvData.DataSource = repo.GetAllAvailable(); // hoặc GetAll()
+        }
+
+        private void frmEmployee_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

@@ -84,6 +84,7 @@
             // 
             resources.ApplyResources(this.lblTitle, "lblTitle");
             this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // pnlInput
             // 
