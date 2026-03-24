@@ -1,4 +1,7 @@
-﻿using System;
+﻿using quanlyquancafe;
+using quanlyquancafe.BLL;
+using quanlyquancafe.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using quanlyquancafe.BLL;
-using quanlyquancafe.DTO;
 
 namespace quanlyquancafe
 {
@@ -17,14 +18,10 @@ namespace quanlyquancafe
         public frmLogin()
         {
             InitializeComponent();
+            btnLogin.BackColor = ThemeHelper.PrimaryColor;
         }
 
         private UserBLL _bll = new UserBLL();
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
