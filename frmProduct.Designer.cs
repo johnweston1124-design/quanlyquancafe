@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.GUI
+﻿namespace quanlyquancafe
 {
     partial class frmProduct
     {
@@ -100,6 +100,7 @@
             this.pnlControl.Controls.Add(this.btnSave);
             resources.ApplyResources(this.pnlControl, "pnlControl");
             this.pnlControl.Name = "pnlControl";
+            this.pnlControl.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlControl_Paint);
             // 
             // btnAdd
             // 

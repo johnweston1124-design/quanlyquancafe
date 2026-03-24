@@ -2,7 +2,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace CoffeeShop.DAL.Repositories
+namespace quanlyquancafe.DAL
 {
     public class OrderRepository
     {

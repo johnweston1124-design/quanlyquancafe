@@ -7,12 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using quanlyquancafe.BLL;
+using quanlyquancafe.DTO;
 
-namespace WindowsFormsApp1
+namespace quanlyquancafe
 {
     public partial class frmMain : Form
     {
         private Form currentChildForm;
+        private UserDTO currentUser;
+
         public frmMain()
         {
             InitializeComponent();
@@ -20,6 +25,16 @@ namespace WindowsFormsApp1
             pnlHeader.BackColor = ThemeHelper.PrimaryColor;
             pnlContent.BackColor = ThemeHelper.BackgroundColor;
         }
+
+        public frmMain(UserDTO user)
+        {
+            InitializeComponent();
+            pnlSidebar.BackColor = ThemeHelper.SidebarColor;
+            pnlHeader.BackColor = ThemeHelper.PrimaryColor;
+            pnlContent.BackColor = ThemeHelper.BackgroundColor;
+            currentUser = user;
+        }
+
         public void OpenChildForm(Form childForm)
         {
             if (currentChildForm != null)
@@ -37,34 +52,37 @@ namespace WindowsFormsApp1
         }
         private void btnProduct_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI.frmProduct());
+            OpenChildForm(new frmProduct());
         }
         private void btnCategory_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI.frmCategory());
+            OpenChildForm(new frmCategory());
         }
         private void btnTable_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI.frmTable());
+            OpenChildForm(new frmTable());
         }
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI.frmOrder());
+            OpenChildForm(new frmOrder());
         }
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI.frmAccount());
+            OpenChildForm(new frmAccount());
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI.frmEmployee());
+            OpenChildForm(new frmEmployee());
         }
         private void btnInvoiceHistory_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI.frmInvoiceHistory());
+            OpenChildForm(new frmInvoiceHistory());
         }
 
+        private void pnlContent_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.GUI
+namespace  quanlyquancafe
 {
     public partial class frmInvoiceHistory : Form
     {
@@ -32,5 +32,9 @@ namespace WindowsFormsApp1.GUI
             dtpFromDate.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
         }
 
+        private void pnlBottom_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

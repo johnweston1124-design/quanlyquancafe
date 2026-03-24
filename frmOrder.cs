@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.GUI
+namespace quanlyquancafe
 {
     public partial class frmOrder : Form
     {
@@ -24,6 +24,11 @@ namespace WindowsFormsApp1.GUI
             btnPayment.ForeColor = Color.White;
             btnPayment.BackColor = Color.ForestGreen;
             lblTitle.ForeColor = ThemeHelper.PrimaryColor;
+        }
+
+        private void frmOrder_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

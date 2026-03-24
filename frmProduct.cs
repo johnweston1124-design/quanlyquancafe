@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.GUI
+namespace quanlyquancafe
 {
     public partial class frmProduct : Form
     {
@@ -38,6 +38,11 @@ namespace WindowsFormsApp1.GUI
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlControl_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using quanlyquancafe;
 
-namespace WindowsFormsApp1.GUI
+namespace quanlyquancafe
 {
     public partial class frmCategory : Form
     {
@@ -49,6 +50,11 @@ namespace WindowsFormsApp1.GUI
                     txtCategoryName.ForeColor = Color.Gray;
                 }
             };
+        }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

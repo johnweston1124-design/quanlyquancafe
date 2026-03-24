@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.GUI
+﻿namespace quanlyquancafe
 {
     partial class frmInvoiceHistory
     {
@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.btnPrintInvoice = new System.Windows.Forms.Button();
             this.pnlData = new System.Windows.Forms.Panel();
             this.dgvInvoices = new System.Windows.Forms.DataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +44,6 @@
             this.colEmployee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotalprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPrintInvoice = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlData.SuspendLayout();
@@ -80,7 +80,7 @@
             this.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpToDate.Location = new System.Drawing.Point(593, 38);
             this.dtpToDate.Name = "dtpToDate";
-            this.dtpToDate.Size = new System.Drawing.Size(200, 23);
+            this.dtpToDate.Size = new System.Drawing.Size(200, 27);
             this.dtpToDate.TabIndex = 2;
             // 
             // dtpFromDate
@@ -89,7 +89,7 @@
             this.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFromDate.Location = new System.Drawing.Point(593, 13);
             this.dtpFromDate.Name = "dtpFromDate";
-            this.dtpFromDate.Size = new System.Drawing.Size(200, 23);
+            this.dtpFromDate.Size = new System.Drawing.Size(200, 27);
             this.dtpFromDate.TabIndex = 2;
             // 
             // label2
@@ -98,7 +98,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(508, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 21);
+            this.label2.Size = new System.Drawing.Size(99, 28);
             this.label2.TabIndex = 1;
             this.label2.Text = "Đến ngày:";
             // 
@@ -108,7 +108,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(508, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 21);
+            this.label1.Size = new System.Drawing.Size(86, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "Từ ngày:";
             // 
@@ -119,7 +119,7 @@
             this.lblTitle.Location = new System.Drawing.Point(13, 31);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(201, 30);
+            this.lblTitle.Size = new System.Drawing.Size(257, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "LỊCH SỬ HÓA ĐƠN";
             // 
@@ -132,6 +132,21 @@
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(933, 69);
             this.pnlBottom.TabIndex = 1;
+            this.pnlBottom.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBottom_Paint);
+            // 
+            // btnPrintInvoice
+            // 
+            this.btnPrintInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintInvoice.AutoSize = true;
+            this.btnPrintInvoice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintInvoice.ForeColor = System.Drawing.Color.White;
+            this.btnPrintInvoice.Location = new System.Drawing.Point(362, 16);
+            this.btnPrintInvoice.Name = "btnPrintInvoice";
+            this.btnPrintInvoice.Size = new System.Drawing.Size(192, 40);
+            this.btnPrintInvoice.TabIndex = 0;
+            this.btnPrintInvoice.Text = "IN LẠI HÓA ĐƠN";
+            this.btnPrintInvoice.UseVisualStyleBackColor = true;
             // 
             // pnlData
             // 
@@ -155,6 +170,7 @@
             this.dgvInvoices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInvoices.Location = new System.Drawing.Point(0, 0);
             this.dgvInvoices.Name = "dgvInvoices";
+            this.dgvInvoices.RowHeadersWidth = 51;
             this.dgvInvoices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInvoices.Size = new System.Drawing.Size(933, 348);
             this.dgvInvoices.TabIndex = 0;
@@ -163,49 +179,40 @@
             // 
             this.colId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colId.HeaderText = "Mã HĐ";
+            this.colId.MinimumWidth = 6;
             this.colId.Name = "colId";
             // 
             // colDate
             // 
             this.colDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colDate.HeaderText = "Ngày tạo";
+            this.colDate.MinimumWidth = 6;
             this.colDate.Name = "colDate";
             // 
             // colEmployee
             // 
             this.colEmployee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colEmployee.HeaderText = "Nhân viên bán";
+            this.colEmployee.MinimumWidth = 6;
             this.colEmployee.Name = "colEmployee";
             // 
             // colTable
             // 
             this.colTable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colTable.HeaderText = "Bàn";
+            this.colTable.MinimumWidth = 6;
             this.colTable.Name = "colTable";
             // 
             // colTotalprice
             // 
             this.colTotalprice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colTotalprice.HeaderText = "Tổng Tiền";
+            this.colTotalprice.MinimumWidth = 6;
             this.colTotalprice.Name = "colTotalprice";
-            // 
-            // btnPrintInvoice
-            // 
-            this.btnPrintInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrintInvoice.AutoSize = true;
-            this.btnPrintInvoice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintInvoice.ForeColor = System.Drawing.Color.White;
-            this.btnPrintInvoice.Location = new System.Drawing.Point(362, 16);
-            this.btnPrintInvoice.Name = "btnPrintInvoice";
-            this.btnPrintInvoice.Size = new System.Drawing.Size(192, 40);
-            this.btnPrintInvoice.TabIndex = 0;
-            this.btnPrintInvoice.Text = "IN LẠI HÓA ĐƠN";
-            this.btnPrintInvoice.UseVisualStyleBackColor = true;
             // 
             // frmInvoiceHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(933, 519);

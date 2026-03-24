@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.GUI
+namespace quanlyquancafe
 {
     public partial class frmEmployee : Form
     {
@@ -35,6 +35,11 @@ namespace WindowsFormsApp1.GUI
             btn.BackColor = color;
             btn.ForeColor = Color.White;
             btn.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+        }
+
+        private void grpEmployeeInfo_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

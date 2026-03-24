@@ -1,5 +1,6 @@
 using System.Data;
 using System.Data.SqlClient;
+using quanlyquancafe.DAL;
 
 namespace CoffeeShop.DAL.Repositories
 {

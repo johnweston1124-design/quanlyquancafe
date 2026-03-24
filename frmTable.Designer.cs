@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.GUI
+﻿namespace quanlyquancafe
 {
     partial class frmTable
     {
@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlData = new System.Windows.Forms.Panel();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlInput = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtTableName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.cboStatus = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.txtTableName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.pnlData.SuspendLayout();
             this.pnlHeader.SuspendLayout();
@@ -64,8 +64,30 @@
             this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvData.Location = new System.Drawing.Point(0, 0);
             this.dgvData.Name = "dgvData";
+            this.dgvData.RowHeadersWidth = 51;
             this.dgvData.Size = new System.Drawing.Size(933, 538);
             this.dgvData.TabIndex = 0;
+            // 
+            // colID
+            // 
+            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colID.HeaderText = "Mã Bàn";
+            this.colID.MinimumWidth = 6;
+            this.colID.Name = "colID";
+            // 
+            // colName
+            // 
+            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colName.HeaderText = "Tên Bàn";
+            this.colName.MinimumWidth = 6;
+            this.colName.Name = "colName";
+            // 
+            // colStatus
+            // 
+            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colStatus.HeaderText = "Trạng thái";
+            this.colStatus.MinimumWidth = 6;
+            this.colStatus.Name = "colStatus";
             // 
             // lblTitle
             // 
@@ -126,46 +148,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin danh mục";
-            // 
-            // txtTableName
-            // 
-            this.txtTableName.BackColor = System.Drawing.Color.Gray;
-            this.txtTableName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTableName.Location = new System.Drawing.Point(241, 63);
-            this.txtTableName.Name = "txtTableName";
-            this.txtTableName.ReadOnly = true;
-            this.txtTableName.Size = new System.Drawing.Size(100, 25);
-            this.txtTableName.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(368, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Trạng thái:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(238, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tên bàn:";
-            // 
-            // cboStatus
-            // 
-            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Items.AddRange(new object[] {
-            "Trống",
-            "Đang có khách"});
-            this.cboStatus.Location = new System.Drawing.Point(371, 62);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(121, 25);
-            this.cboStatus.TabIndex = 2;
             // 
             // btnAdd
             // 
@@ -231,28 +213,51 @@
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // colID
+            // cboStatus
             // 
-            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colID.HeaderText = "Mã Bàn";
-            this.colID.Name = "colID";
+            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStatus.FormattingEnabled = true;
+            this.cboStatus.Items.AddRange(new object[] {
+            "Trống",
+            "Đang có khách"});
+            this.cboStatus.Location = new System.Drawing.Point(371, 62);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(121, 29);
+            this.cboStatus.TabIndex = 2;
             // 
-            // colName
+            // txtTableName
             // 
-            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colName.HeaderText = "Tên Bàn";
-            this.colName.Name = "colName";
+            this.txtTableName.BackColor = System.Drawing.Color.Gray;
+            this.txtTableName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTableName.Location = new System.Drawing.Point(241, 63);
+            this.txtTableName.Name = "txtTableName";
+            this.txtTableName.ReadOnly = true;
+            this.txtTableName.Size = new System.Drawing.Size(100, 29);
+            this.txtTableName.TabIndex = 1;
             // 
-            // colStatus
+            // label2
             // 
-            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colStatus.HeaderText = "Trạng thái";
-            this.colStatus.Name = "colStatus";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(368, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 23);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Trạng thái:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(238, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tên bàn:";
             // 
             // frmTable
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 588);
             this.Controls.Add(this.pnlInput);
@@ -260,7 +265,7 @@
             this.Controls.Add(this.pnlHeader);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmTable";
             this.Text = "frmTable";
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.GUI
+namespace  quanlyquancafe
 {
     public partial class frmTable : Form
     {
@@ -39,6 +39,11 @@ namespace WindowsFormsApp1.GUI
                     txtTableName.ForeColor = Color.Gray;
                 }
             };
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
