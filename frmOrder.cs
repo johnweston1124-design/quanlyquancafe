@@ -44,7 +44,7 @@ namespace quanlyquancafe
 
             BLL.OrderBLL orderBll = new BLL.OrderBLL();
             int currentOrderId = 1;
-            dgvOrderDetail.DataSource = orderBll.GetDetails(currentOrderId);
+            dgvOrderDetail.DataSource = orderBll.GetOrderDetails(currentOrderId);
         }
 
         private void flpProductList_Paint(object sender, PaintEventArgs e)
