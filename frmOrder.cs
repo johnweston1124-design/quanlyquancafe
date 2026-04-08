@@ -40,8 +40,11 @@ namespace quanlyquancafe
 
         private void LoadData()
         {
-            var repo = new OrderRepository();
-            dgvOrderDetail.DataSource = repo.GetAll(); // hoặc GetAll()
+            dgvOrderDetail.AutoGenerateColumns = false;
+
+            BLL.OrderBLL orderBll = new BLL.OrderBLL();
+            int currentOrderId = 1;
+            dgvOrderDetail.DataSource = orderBll.GetDetails(currentOrderId);
         }
 
         private void flpProductList_Paint(object sender, PaintEventArgs e)
