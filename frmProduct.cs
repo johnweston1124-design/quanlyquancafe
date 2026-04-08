@@ -53,6 +53,9 @@ namespace quanlyquancafe
         {
             var repo = new ProductRepository();
             dgvData.DataSource = repo.GetAllAvailable(); // hoặc GetAll()
+
+            dgvData.AutoGenerateColumns = false;
+
         }
 
         private void frmProduct_Load(object sender, EventArgs e)
@@ -61,6 +64,11 @@ namespace quanlyquancafe
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

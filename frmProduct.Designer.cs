@@ -203,22 +203,26 @@
             this.colCategory});
             resources.ApplyResources(this.dgvData, "dgvData");
             this.dgvData.Name = "dgvData";
+            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             // 
             // colID
             // 
             this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colID.DataPropertyName = "ProductId";
             resources.ApplyResources(this.colID, "colID");
             this.colID.Name = "colID";
             // 
             // colName
             // 
             this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colName.DataPropertyName = "ProductName";
             resources.ApplyResources(this.colName, "colName");
             this.colName.Name = "colName";
             // 
             // colPrice
             // 
             this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPrice.DataPropertyName = "Price";
             resources.ApplyResources(this.colPrice, "colPrice");
             this.colPrice.Name = "colPrice";
             // 
@@ -231,6 +235,7 @@
             // colCategory
             // 
             this.colCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colCategory.DataPropertyName = "CategoryId";
             resources.ApplyResources(this.colCategory, "colCategory");
             this.colCategory.Name = "colCategory";
             // 
