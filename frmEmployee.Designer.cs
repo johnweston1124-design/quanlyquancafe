@@ -47,12 +47,15 @@
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.pnlData = new System.Windows.Forms.Panel();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colJoinDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlData = new System.Windows.Forms.Panel();
+            this.colSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlInput.SuspendLayout();
             this.grpEmployeeInfo.SuspendLayout();
             this.pnlHeader.SuspendLayout();
@@ -265,6 +268,7 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(933, 65);
             this.pnlHeader.TabIndex = 1;
+            this.pnlHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHeader_Paint);
             // 
             // lblTitle
             // 
@@ -285,9 +289,12 @@
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
             this.colName,
+            this.colGender,
+            this.colBirth,
             this.colPhone,
-            this.colPosition,
-            this.colJoinDate});
+            this.colAddress,
+            this.colJoinDate,
+            this.colSalary});
             this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvData.Location = new System.Drawing.Point(0, 0);
             this.dgvData.Name = "dgvData";
@@ -298,9 +305,19 @@
             this.dgvData.TabIndex = 2;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             // 
+            // pnlData
+            // 
+            this.pnlData.Controls.Add(this.dgvData);
+            this.pnlData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlData.Location = new System.Drawing.Point(0, 65);
+            this.pnlData.Name = "pnlData";
+            this.pnlData.Size = new System.Drawing.Size(933, 261);
+            this.pnlData.TabIndex = 3;
+            // 
             // colID
             // 
             this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colID.DataPropertyName = "EmployeeId";
             this.colID.HeaderText = "Mã NV";
             this.colID.MinimumWidth = 6;
             this.colID.Name = "colID";
@@ -310,46 +327,67 @@
             // colName
             // 
             this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colName.DataPropertyName = "FullName";
             this.colName.HeaderText = "Họ và Tên";
             this.colName.MinimumWidth = 6;
             this.colName.Name = "colName";
             this.colName.ReadOnly = true;
             // 
+            // colGender
+            // 
+            this.colGender.DataPropertyName = "Gender";
+            this.colGender.HeaderText = "Giới Tính";
+            this.colGender.MinimumWidth = 6;
+            this.colGender.Name = "colGender";
+            this.colGender.ReadOnly = true;
+            this.colGender.Width = 125;
+            // 
+            // colBirth
+            // 
+            this.colBirth.DataPropertyName = "DateOfBirth";
+            this.colBirth.HeaderText = "Ngày Sinh";
+            this.colBirth.MinimumWidth = 6;
+            this.colBirth.Name = "colBirth";
+            this.colBirth.ReadOnly = true;
+            this.colBirth.Width = 125;
+            // 
             // colPhone
             // 
             this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colPhone.DataPropertyName = "Phone";
             this.colPhone.HeaderText = "Số điện thoại";
             this.colPhone.MinimumWidth = 6;
             this.colPhone.Name = "colPhone";
             this.colPhone.ReadOnly = true;
             this.colPhone.Width = 140;
             // 
-            // colPosition
+            // colAddress
             // 
-            this.colPosition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colPosition.HeaderText = "Chức vụ";
-            this.colPosition.MinimumWidth = 6;
-            this.colPosition.Name = "colPosition";
-            this.colPosition.ReadOnly = true;
-            this.colPosition.Width = 101;
+            this.colAddress.DataPropertyName = "Address";
+            this.colAddress.HeaderText = "Địa Chỉ";
+            this.colAddress.MinimumWidth = 6;
+            this.colAddress.Name = "colAddress";
+            this.colAddress.ReadOnly = true;
+            this.colAddress.Width = 125;
             // 
             // colJoinDate
             // 
             this.colJoinDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colJoinDate.DataPropertyName = "HireDate";
             this.colJoinDate.HeaderText = "Ngày vào làm";
             this.colJoinDate.MinimumWidth = 6;
             this.colJoinDate.Name = "colJoinDate";
             this.colJoinDate.ReadOnly = true;
             this.colJoinDate.Width = 144;
             // 
-            // pnlData
+            // colSalary
             // 
-            this.pnlData.Controls.Add(this.dgvData);
-            this.pnlData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlData.Location = new System.Drawing.Point(0, 65);
-            this.pnlData.Name = "pnlData";
-            this.pnlData.Size = new System.Drawing.Size(933, 261);
-            this.pnlData.TabIndex = 3;
+            this.colSalary.DataPropertyName = "Salary";
+            this.colSalary.HeaderText = "Lương";
+            this.colSalary.MinimumWidth = 6;
+            this.colSalary.Name = "colSalary";
+            this.colSalary.ReadOnly = true;
+            this.colSalary.Width = 125;
             // 
             // frmEmployee
             // 
@@ -399,8 +437,11 @@
         private System.Windows.Forms.Panel pnlData;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBirth;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPosition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn colJoinDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSalary;
     }
 }

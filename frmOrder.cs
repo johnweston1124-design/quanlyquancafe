@@ -1,4 +1,5 @@
 ﻿using CoffeeShop.DAL.Repositories;
+using quanlyquancafe.BLL;
 using quanlyquancafe.DAL;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,12 @@ namespace quanlyquancafe
 {
     public partial class frmOrder : Form
     {
+        OrderBLL orderBLL = new OrderBLL();
+        int currentOrderId = -1;
         public frmOrder()
         {
             InitializeComponent();
             FormatHelper.ConfigDataGridView(dgvOrderDetail);
-            lblTotal.Text = "TỔNG: 0 VNĐ";
             lblTotal.ForeColor = Color.Red;
             btnPayment.FlatStyle = FlatStyle.Flat;
             btnPayment.FlatAppearance.BorderSize = 0;
@@ -45,11 +47,40 @@ namespace quanlyquancafe
             BLL.OrderBLL orderBll = new BLL.OrderBLL();
             int currentOrderId = 1;
             dgvOrderDetail.DataSource = orderBll.GetOrderDetails(currentOrderId);
+            UpdateTotal();
         }
 
         private void flpProductList_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateTotal()
+        {
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dgvOrderDetail.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                // dùng Giá * Số lượng (vì bạn đang hiển thị 2 cột này)
+                decimal gia = Convert.ToDecimal(row.Cells["Column3"].Value);
+                int sl = Convert.ToInt32(row.Cells["Column2"].Value);
+
+                total += gia * sl;
+            }
+
+            lblTotal.Text = "TỔNG: " + total.ToString("N0") + " VNĐ";
         }
     }
 }

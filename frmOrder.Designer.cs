@@ -82,6 +82,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(300, 180);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnPayment
             // 
@@ -104,6 +105,7 @@
             this.lblTotal.Size = new System.Drawing.Size(175, 39);
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "Tổng Giá:";
+            this.lblTotal.Click += new System.EventHandler(this.lblTotal_Click);
             // 
             // flpProductList
             // 
@@ -173,7 +175,7 @@
             // 
             // Column3
             // 
-            this.Column3.DataPropertyName = "Price";
+            this.Column3.DataPropertyName = "UnitPrice";
             this.Column3.HeaderText = "Giá";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";

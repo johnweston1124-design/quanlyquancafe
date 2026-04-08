@@ -1,4 +1,5 @@
 ﻿using CoffeeShop.DAL.Repositories;
+using quanlyquancafe.BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,8 @@ namespace quanlyquancafe
 {
     public partial class frmEmployee : Form
     {
+        EmployeeBLL employeeBLL = new EmployeeBLL();
+
         public frmEmployee()
         {
             InitializeComponent();
@@ -24,6 +27,7 @@ namespace quanlyquancafe
             StyleButton(btnEdit, ThemeHelper.PrimaryColor);
             StyleButton(btnSave, Color.ForestGreen);
             StyleButton(btnDelete, Color.IndianRed);
+            dgvData.DataSource = employeeBLL.GetAll();
             if (dgvData != null)
             {
                 FormatHelper.ConfigDataGridView(dgvData);
@@ -50,13 +54,16 @@ namespace quanlyquancafe
         }
         private void LoadData()
         {
-            var repo = new ProductRepository();
-            dgvData.DataSource = repo.GetAllAvailable(); // hoặc GetAll()
         }
 
         private void frmEmployee_Load(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void pnlHeader_Paint(object sender, PaintEventArgs e)
+        {
+                
         }
     }
 }
