@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CafeManager;
+using CafeManager.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +16,7 @@ namespace  quanlyquancafe
     public partial class frmTable : Form
     {
         TableBLL tableBLL = new TableBLL();
+
         public frmTable()
         {
             InitializeComponent();
@@ -32,59 +35,42 @@ namespace  quanlyquancafe
                 {
                     txtTableName.Text = "";
                     txtTableName.ForeColor = Color.Black;
-                }
-            };
-            txtTableName.Leave += (s, e) => {
-                if (string.IsNullOrWhiteSpace(txtTableName.Text))
-                {
-                    txtTableName.Text = "Nhập tên bàn (Vd: Bàn 01)...";
-                    txtTableName.ForeColor = Color.Gray;
-                }
+        }
+        {
+        }
             };
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Controls.Clear();
+            DataTable dt = tableBLL.GetTables();
 
-        }
+            {
+                Button btn = new Button();
+                btn.Width = 120;
+                btn.Height = 80;
 
-        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+                btn.Text = row["TableName"].ToString();
 
-        }
+                string status = row["Status"].ToString();
 
-        private void LoadData()
-        {
-            dgvTable.DataSource = tableBLL.GetAll();
-        }
+
+            }
 
         private void frmTable_Load(object sender, EventArgs e)
         {
             LoadData();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void pnlHeader_Paint(object sender, PaintEventArgs e)
         {
-
         }
-
-        private void dgvTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;
 
-                // Use the designer column name
-            int tableId = Convert.ToInt32(dgvTable.Rows[e.RowIndex].Cells["colID"].Value);
 
-            frmMain main = this.ParentForm as frmMain;
-            if (main != null)
-            {
-                main.SetSelectedTable(tableId);
-            }
         }
     }
 }
