@@ -1,5 +1,4 @@
 <Solution>
-  <Project Path="CafeManager/CafeManager/CafeManager.csproj" Id="db14083b-e879-4627-a220-cef993f6eb66" />
   <Project Path="quanlyquancafe.BLL/quanlyquancafe.BLL.csproj" />
   <Project Path="quanlyquancafe.DAL/quanlyquancafe.DAL.csproj" />
   <Project Path="quanlyquancafe.DTO/quanlyquancafe.DTO.csproj" />
