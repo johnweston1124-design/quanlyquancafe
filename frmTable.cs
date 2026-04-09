@@ -1,5 +1,5 @@
 ﻿using CafeManager;
-using CafeManager.BLL;
+using quanlyquancafe.BLL;
 using System;
 using System.Data;
 using System.Drawing;

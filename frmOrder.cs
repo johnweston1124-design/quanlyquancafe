@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using CafeManager.BLL;
+using quanlyquancafe.BLL;
 
 namespace CafeManager
 {
