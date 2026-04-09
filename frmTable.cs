@@ -1,5 +1,4 @@
-﻿using CoffeeShop.DAL.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,15 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using quanlyquancafe.BLL;
 
 namespace  quanlyquancafe
 {
     public partial class frmTable : Form
     {
+        TableBLL tableBLL = new TableBLL();
         public frmTable()
         {
             InitializeComponent();
-            FormatHelper.ConfigDataGridView(dgvData);
+            FormatHelper.ConfigDataGridView(dgvTable);
             lblTitle.ForeColor = ThemeHelper.PrimaryColor;
             btnAdd.BackColor = ThemeHelper.PrimaryColor;
             btnEdit.BackColor = ThemeHelper.PrimaryColor;
@@ -54,8 +55,7 @@ namespace  quanlyquancafe
 
         private void LoadData()
         {
-            var repo = new ProductRepository();
-            dgvData.DataSource = repo.GetAllAvailable(); // hoặc GetAll()
+            dgvTable.DataSource = tableBLL.GetAll();
         }
 
         private void frmTable_Load(object sender, EventArgs e)
@@ -71,6 +71,20 @@ namespace  quanlyquancafe
         private void pnlHeader_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void dgvTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+                // Use the designer column name
+            int tableId = Convert.ToInt32(dgvTable.Rows[e.RowIndex].Cells["colID"].Value);
+
+            frmMain main = this.ParentForm as frmMain;
+            if (main != null)
+            {
+                main.SetSelectedTable(tableId);
+            }
         }
     }
 }

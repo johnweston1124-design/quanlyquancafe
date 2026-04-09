@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvData = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTable = new System.Windows.Forms.DataGridView();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlData = new System.Windows.Forms.Panel();
             this.pnlHeader = new System.Windows.Forms.Panel();
@@ -46,49 +43,31 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
             this.pnlData.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlInput.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvData
+            // dgvTable
             // 
-            this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
             this.colName,
             this.colStatus});
-            this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvData.Location = new System.Drawing.Point(0, 0);
-            this.dgvData.Name = "dgvData";
-            this.dgvData.RowHeadersWidth = 51;
-            this.dgvData.Size = new System.Drawing.Size(933, 538);
-            this.dgvData.TabIndex = 0;
-            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
-            // 
-            // colID
-            // 
-            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colID.HeaderText = "Mã Bàn";
-            this.colID.MinimumWidth = 6;
-            this.colID.Name = "colID";
-            // 
-            // colName
-            // 
-            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colName.HeaderText = "Tên Bàn";
-            this.colName.MinimumWidth = 6;
-            this.colName.Name = "colName";
-            // 
-            // colStatus
-            // 
-            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colStatus.HeaderText = "Trạng thái";
-            this.colStatus.MinimumWidth = 6;
-            this.colStatus.Name = "colStatus";
+            this.dgvTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTable.Location = new System.Drawing.Point(0, 0);
+            this.dgvTable.Name = "dgvTable";
+            this.dgvTable.RowHeadersWidth = 51;
+            this.dgvTable.Size = new System.Drawing.Size(933, 538);
+            this.dgvTable.TabIndex = 0;
+            this.dgvTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTable_CellClick);
             // 
             // lblTitle
             // 
@@ -105,7 +84,7 @@
             // pnlData
             // 
             this.pnlData.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlData.Controls.Add(this.dgvData);
+            this.pnlData.Controls.Add(this.dgvTable);
             this.pnlData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlData.Location = new System.Drawing.Point(0, 50);
             this.pnlData.Margin = new System.Windows.Forms.Padding(4);
@@ -258,6 +237,30 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên bàn:";
             // 
+            // colID
+            // 
+            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colID.DataPropertyName = "TableId";
+            this.colID.HeaderText = "Mã Bàn";
+            this.colID.MinimumWidth = 6;
+            this.colID.Name = "colID";
+            // 
+            // colName
+            // 
+            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colName.DataPropertyName = "TableName";
+            this.colName.HeaderText = "Tên Bàn";
+            this.colName.MinimumWidth = 6;
+            this.colName.Name = "colName";
+            // 
+            // colStatus
+            // 
+            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colStatus.DataPropertyName = "Status";
+            this.colStatus.HeaderText = "Trạng thái";
+            this.colStatus.MinimumWidth = 6;
+            this.colStatus.Name = "colStatus";
+            // 
             // frmTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -271,7 +274,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmTable";
             this.Text = "frmTable";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).EndInit();
             this.pnlData.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);
             this.pnlInput.ResumeLayout(false);
@@ -283,7 +286,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvData;
+        private System.Windows.Forms.DataGridView dgvTable;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlData;
         private System.Windows.Forms.Panel pnlHeader;

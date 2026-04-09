@@ -29,6 +29,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetail)).BeginInit();
             this.pnlRight.SuspendLayout();
@@ -51,7 +52,8 @@
             this.dgvOrderDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.colStatus});
             this.dgvOrderDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOrderDetail.Location = new System.Drawing.Point(0, 0);
             this.dgvOrderDetail.Name = "dgvOrderDetail";
@@ -182,6 +184,15 @@
             this.Column3.ReadOnly = true;
             this.Column3.Width = 125;
             // 
+            // colStatus
+            // 
+            this.colStatus.DataPropertyName = "OrderStatus";
+            this.colStatus.HeaderText = "Trạng Thái";
+            this.colStatus.MinimumWidth = 6;
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
+            this.colStatus.Width = 125;
+            // 
             // frmOrder
             // 
             this.ClientSize = new System.Drawing.Size(800, 450);
@@ -215,5 +226,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
     }
 }

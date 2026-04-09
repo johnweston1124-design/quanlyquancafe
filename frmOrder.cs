@@ -1,4 +1,4 @@
-﻿using CoffeeShop.DAL.Repositories;
+﻿ 
 using quanlyquancafe.BLL;
 using quanlyquancafe.DAL;
 using System;
@@ -15,8 +15,9 @@ namespace quanlyquancafe
 {
     public partial class frmOrder : Form
     {
-        OrderBLL orderBLL = new OrderBLL();
-        int currentOrderId = -1;
+		private int _tableId;
+		private int _orderId;
+		OrderBLL orderBLL = new OrderBLL();
         public frmOrder()
         {
             InitializeComponent();
@@ -28,11 +29,24 @@ namespace quanlyquancafe
             btnPayment.ForeColor = Color.White;
             btnPayment.BackColor = Color.ForestGreen;
             lblTitle.ForeColor = ThemeHelper.PrimaryColor;
-        }
+		}
 
-        private void frmOrder_Load(object sender, EventArgs e)
+		public frmOrder(int tableId)
+		{
+			InitializeComponent();
+			_tableId = tableId;
+		}
+
+		private void frmOrder_Load(object sender, EventArgs e)
         {
-            LoadData();
+			_orderId = orderBLL.GetUnpaidOrder(_tableId);
+
+			if (_orderId == -1)
+			{
+				_orderId = orderBLL.CreateOrder(_tableId);
+			}
+
+			LoadData();
         }
 
         private void dgvOrderDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -82,5 +96,21 @@ namespace quanlyquancafe
 
             lblTotal.Text = "TỔNG: " + total.ToString("N0") + " VNĐ";
         }
-    }
+
+		private void LoadOrder()
+		{
+			OrderBLL orderBLL = new OrderBLL();
+
+			_orderId = orderBLL.GetUnpaidOrder(_tableId);
+
+			if (_orderId == -1)
+			{
+				_orderId = orderBLL.CreateOrder(_tableId);
+			}
+
+			dgvOrderDetail.DataSource = orderBLL.GetOrderDetails(_orderId);
+
+			UpdateTotal();
+		}
+	}
 }

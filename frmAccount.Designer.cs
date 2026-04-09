@@ -44,14 +44,16 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.pnlData = new System.Windows.Forms.Panel();
-            this.dgvData = new System.Windows.Forms.DataGridView();
+            this.dgvDataAcc = new System.Windows.Forms.DataGridView();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colActive = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlHeader.SuspendLayout();
             this.pnlInput.SuspendLayout();
             this.pnlData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataAcc)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -233,31 +235,42 @@
             // 
             // pnlData
             // 
-            this.pnlData.Controls.Add(this.dgvData);
+            this.pnlData.Controls.Add(this.dgvDataAcc);
             this.pnlData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlData.Location = new System.Drawing.Point(0, 65);
             this.pnlData.Name = "pnlData";
             this.pnlData.Size = new System.Drawing.Size(933, 373);
             this.pnlData.TabIndex = 2;
             // 
-            // dgvData
+            // dgvDataAcc
             // 
-            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDataAcc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDataAcc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colId,
             this.colName,
             this.colUser,
-            this.colRole});
-            this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvData.Location = new System.Drawing.Point(0, 0);
-            this.dgvData.Name = "dgvData";
-            this.dgvData.RowHeadersWidth = 51;
-            this.dgvData.Size = new System.Drawing.Size(933, 373);
-            this.dgvData.TabIndex = 0;
-            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
+            this.colRole,
+            this.colActive});
+            this.dgvDataAcc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDataAcc.Location = new System.Drawing.Point(0, 0);
+            this.dgvDataAcc.Name = "dgvDataAcc";
+            this.dgvDataAcc.RowHeadersWidth = 51;
+            this.dgvDataAcc.Size = new System.Drawing.Size(933, 373);
+            this.dgvDataAcc.TabIndex = 0;
+            this.dgvDataAcc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "UserId";
+            this.colId.HeaderText = "Id";
+            this.colId.MinimumWidth = 6;
+            this.colId.Name = "colId";
+            this.colId.Width = 125;
             // 
             // colName
             // 
             this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colName.DataPropertyName = "Username";
             this.colName.HeaderText = "Tên đăng nhập";
             this.colName.MinimumWidth = 6;
             this.colName.Name = "colName";
@@ -265,6 +278,7 @@
             // colUser
             // 
             this.colUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colUser.DataPropertyName = "FullName";
             this.colUser.HeaderText = "Nhân viên sở hữu";
             this.colUser.MinimumWidth = 6;
             this.colUser.Name = "colUser";
@@ -272,9 +286,18 @@
             // colRole
             // 
             this.colRole.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colRole.DataPropertyName = "Role";
             this.colRole.HeaderText = "Quyền hạn";
             this.colRole.MinimumWidth = 6;
             this.colRole.Name = "colRole";
+            // 
+            // colActive
+            // 
+            this.colActive.DataPropertyName = "IsActive";
+            this.colActive.HeaderText = "Hoạt Động";
+            this.colActive.MinimumWidth = 6;
+            this.colActive.Name = "colActive";
+            this.colActive.Width = 125;
             // 
             // frmAccount
             // 
@@ -292,7 +315,7 @@
             this.pnlInput.ResumeLayout(false);
             this.pnlInput.PerformLayout();
             this.pnlData.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataAcc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -315,9 +338,11 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel pnlData;
-        private System.Windows.Forms.DataGridView dgvData;
+        private System.Windows.Forms.DataGridView dgvDataAcc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colActive;
     }
 }

@@ -1,4 +1,4 @@
-﻿using CoffeeShop.DAL.Repositories;
+﻿using quanlyquancafe.BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +13,11 @@ namespace quanlyquancafe
 {
     public partial class frmAccount : Form
     {
+        UserBLL userBLL = new UserBLL();
         public frmAccount()
         {
             InitializeComponent();
-            FormatHelper.ConfigDataGridView(dgvData);
+            FormatHelper.ConfigDataGridView(dgvDataAcc);
             lblTitle.ForeColor = ThemeHelper.PrimaryColor;
             btnAdd.BackColor = ThemeHelper.PrimaryColor;
             btnEdit.BackColor = ThemeHelper.PrimaryColor;
@@ -32,13 +33,21 @@ namespace quanlyquancafe
         }
         private void LoadData()
         {
-            var repo = new ProductRepository();
-            dgvData.DataSource = repo.GetAllAvailable(); // hoặc GetAll()
+            dgvDataAcc.DataSource = userBLL.GetAll();
         }
 
         private void frmAccount_Load(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void LoadEmployeeCombo()
+        {
+            EmployeeBLL empBLL = new EmployeeBLL();
+            cboEmployee.DataSource = empBLL.GetAll();
+
+            cboEmployee.DisplayMember = "FullName";
+            cboEmployee.ValueMember = "EmployeeId";
         }
 
         private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)

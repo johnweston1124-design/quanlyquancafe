@@ -68,5 +68,10 @@ namespace quanlyquancafe
             if (e.KeyCode == Keys.Enter)
                 btnLogin_Click(sender, e);
         }
+
+        private void btnExit_TextChanged(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

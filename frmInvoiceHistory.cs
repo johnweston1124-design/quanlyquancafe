@@ -1,4 +1,4 @@
-﻿using CoffeeShop.DAL.Repositories;
+﻿ 
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,8 +41,7 @@ namespace  quanlyquancafe
 
         private void LoadData()
         {
-            var repo = new ProductRepository();
-            dgvInvoices.DataSource = repo.GetAllAvailable(); // hoặc GetAll()
+            // hoặc GetAll()
         }
 
         private void frmInvoiceHistory_Load(object sender, EventArgs e)

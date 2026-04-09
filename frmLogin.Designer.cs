@@ -113,6 +113,7 @@
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "THOÁT";
             this.btnExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnExit.TextChanged += new System.EventHandler(this.btnExit_TextChanged);
             // 
             // frmLogin
             // 

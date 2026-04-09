@@ -15,6 +15,7 @@ namespace quanlyquancafe
 {
     public partial class frmMain : Form
     {
+        private int selectedTableId = -1;
         private Form currentChildForm;
         private UserDTO currentUser;
 
@@ -62,9 +63,16 @@ namespace quanlyquancafe
         {
             OpenChildForm(new frmTable());
         }
+        // File: quanlyquancafe.frmMain.cs
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmOrder());
+            if (selectedTableId <= 0)
+            {
+                MessageBox.Show("Please select a table first.");
+                return;
+            }
+
+            OpenChildForm(new frmOrder(selectedTableId));
         }
         private void btnAccount_Click(object sender, EventArgs e)
         {
@@ -83,6 +91,11 @@ namespace quanlyquancafe
         private void pnlContent_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        public void SetSelectedTable(int tableId)
+        {
+            selectedTableId = tableId;
         }
     }
 }
