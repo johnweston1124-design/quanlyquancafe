@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlSidebar = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.btnEmployee = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             this.btnProduct = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pnlSidebar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +56,7 @@
             this.pnlSidebar.Controls.Add(this.btnProduct);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
-            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(267, 554);
             this.pnlSidebar.TabIndex = 0;
@@ -62,7 +64,7 @@
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(16, 418);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(208, 62);
             this.button6.TabIndex = 0;
@@ -73,7 +75,7 @@
             // btnEmployee
             // 
             this.btnEmployee.Location = new System.Drawing.Point(124, 225);
-            this.btnEmployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.btnEmployee.Name = "btnEmployee";
             this.btnEmployee.Size = new System.Drawing.Size(100, 62);
             this.btnEmployee.TabIndex = 0;
@@ -84,7 +86,7 @@
             // BtnTable
             // 
             this.BtnTable.Location = new System.Drawing.Point(124, 124);
-            this.BtnTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnTable.Margin = new System.Windows.Forms.Padding(4);
             this.BtnTable.Name = "BtnTable";
             this.BtnTable.Size = new System.Drawing.Size(100, 62);
             this.BtnTable.TabIndex = 0;
@@ -95,7 +97,7 @@
             // btnInvoiceHistory
             // 
             this.btnInvoiceHistory.Location = new System.Drawing.Point(16, 314);
-            this.btnInvoiceHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInvoiceHistory.Margin = new System.Windows.Forms.Padding(4);
             this.btnInvoiceHistory.Name = "btnInvoiceHistory";
             this.btnInvoiceHistory.Size = new System.Drawing.Size(208, 62);
             this.btnInvoiceHistory.TabIndex = 0;
@@ -106,7 +108,7 @@
             // btnCategory
             // 
             this.btnCategory.Location = new System.Drawing.Point(124, 27);
-            this.btnCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Size = new System.Drawing.Size(100, 62);
             this.btnCategory.TabIndex = 0;
@@ -117,7 +119,7 @@
             // btnOrder
             // 
             this.btnOrder.Location = new System.Drawing.Point(16, 225);
-            this.btnOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(4);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(100, 62);
             this.btnOrder.TabIndex = 0;
@@ -128,7 +130,7 @@
             // btnAccount
             // 
             this.btnAccount.Location = new System.Drawing.Point(16, 124);
-            this.btnAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAccount.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(100, 62);
             this.btnAccount.TabIndex = 0;
@@ -139,7 +141,7 @@
             // btnProduct
             // 
             this.btnProduct.Location = new System.Drawing.Point(16, 27);
-            this.btnProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(100, 62);
             this.btnProduct.TabIndex = 0;
@@ -152,7 +154,7 @@
             this.pnlHeader.BackColor = System.Drawing.SystemColors.Window;
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(267, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(800, 74);
             this.pnlHeader.TabIndex = 1;
@@ -161,11 +163,18 @@
             // 
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.Location = new System.Drawing.Point(267, 74);
-            this.pnlContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlContent.Margin = new System.Windows.Forms.Padding(4);
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(800, 480);
             this.pnlContent.TabIndex = 2;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // frmMain
             // 
@@ -175,7 +184,7 @@
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlSidebar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -197,6 +206,7 @@
         private System.Windows.Forms.Button btnInvoiceHistory;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnAccount;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

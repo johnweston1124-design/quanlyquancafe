@@ -15,10 +15,10 @@ namespace quanlyquancafe
 {
     public partial class frmOrder : Form
     {
-		private int _tableId;
-		private int _orderId;
-		OrderBLL orderBLL = new OrderBLL();
-        public frmOrder()
+        private int selectedTableId;
+        private string selectedTableName;
+        private OrderBLL orderBLL = new OrderBLL();
+        public frmOrder(int tableId, string tableName)
         {
             InitializeComponent();
             FormatHelper.ConfigDataGridView(dgvOrderDetail);
@@ -29,40 +29,21 @@ namespace quanlyquancafe
             btnPayment.ForeColor = Color.White;
             btnPayment.BackColor = Color.ForestGreen;
             lblTitle.ForeColor = ThemeHelper.PrimaryColor;
-		}
+            this.selectedTableId = tableId;
+            lblTableSelected.Text = "Bàn: " + tableName;
+            LoadOrder();
+        }
 
-		public frmOrder(int tableId)
-		{
-			InitializeComponent();
-			_tableId = tableId;
-		}
 
-		private void frmOrder_Load(object sender, EventArgs e)
+        private void frmOrder_Load(object sender, EventArgs e)
         {
-			_orderId = orderBLL.GetUnpaidOrder(_tableId);
-
-			if (_orderId == -1)
-			{
-				_orderId = orderBLL.CreateOrder(_tableId);
-			}
-
-			LoadData();
         }
 
         private void dgvOrderDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
-        private void LoadData()
-        {
-            dgvOrderDetail.AutoGenerateColumns = false;
-
-            BLL.OrderBLL orderBll = new BLL.OrderBLL();
-            int currentOrderId = 1;
-            dgvOrderDetail.DataSource = orderBll.GetOrderDetails(currentOrderId);
-            UpdateTotal();
-        }
 
         private void flpProductList_Paint(object sender, PaintEventArgs e)
         {
@@ -79,38 +60,45 @@ namespace quanlyquancafe
 
         }
 
-        private void UpdateTotal()
+
+        private void LoadOrder()
         {
-            decimal total = 0;
+            dgvOrderDetail.DataSource = null;
+            dgvOrderDetail.Columns.Clear();
 
-            foreach (DataGridViewRow row in dgvOrderDetail.Rows)
+            int orderId = orderBLL.GetActiveOrderIdByTable(selectedTableId);
+
+            if (orderId != -1)
             {
-                if (row.IsNewRow) continue;
+                DataTable dt = orderBLL.GetOrderDetails(orderId);
+                dgvOrderDetail.AutoGenerateColumns = true;
+                dgvOrderDetail.DataSource = dt;
 
-                // dùng Giá * Số lượng (vì bạn đang hiển thị 2 cột này)
-                decimal gia = Convert.ToDecimal(row.Cells["Column3"].Value);
-                int sl = Convert.ToInt32(row.Cells["Column2"].Value);
+                dgvOrderDetail.Columns["ProductName"].HeaderText = "Tên món";
+                dgvOrderDetail.Columns["Quantity"].HeaderText = "Số lượng";
+                dgvOrderDetail.Columns["UnitPrice"].HeaderText = "Đơn giá";
+                // If OrderStatus is there and you want to hide it:
+                if (dgvOrderDetail.Columns.Contains("OrderStatus"))
+                    dgvOrderDetail.Columns["OrderStatus"].Visible = false;
+                if (dgvOrderDetail.Columns.Contains("LineTotal"))
+                    dgvOrderDetail.Columns["LineTotal"].Visible = false;
 
-                total += gia * sl;
+                decimal total = 0;
+                foreach (DataRow row in dt.Rows)
+                {
+                    // We do the math here because 'Thành tiền' isn't in your SQL query
+                    decimal price = Convert.ToDecimal(row["UnitPrice"]);
+                    int quantity = Convert.ToInt32(row["Quantity"]);
+
+                    total += price * quantity;
+                }
+
+                lblTotal.Text = "TỔNG: " + total.ToString("N0") + " VND";
             }
-
-            lblTotal.Text = "TỔNG: " + total.ToString("N0") + " VNĐ";
+            else
+            {
+                lblTotal.Text = "TỔNG: 0 VND";
+            }
         }
-
-		private void LoadOrder()
-		{
-			OrderBLL orderBLL = new OrderBLL();
-
-			_orderId = orderBLL.GetUnpaidOrder(_tableId);
-
-			if (_orderId == -1)
-			{
-				_orderId = orderBLL.CreateOrder(_tableId);
-			}
-
-			dgvOrderDetail.DataSource = orderBLL.GetOrderDetails(_orderId);
-
-			UpdateTotal();
-		}
-	}
+    }
 }
