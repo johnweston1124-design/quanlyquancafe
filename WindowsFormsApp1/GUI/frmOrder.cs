@@ -24,6 +24,10 @@ namespace WindowsFormsApp1.GUI
             btnPayment.ForeColor = Color.White;
             btnPayment.BackColor = Color.ForestGreen;
             lblTitle.ForeColor = ThemeHelper.PrimaryColor;
+            btnAdd.BackColor = ThemeHelper.PrimaryColor;
+            btnEdit.BackColor = ThemeHelper.PrimaryColor;
+            btnSave.BackColor = ThemeHelper.PrimaryColor;
+
         }
     }
 }
