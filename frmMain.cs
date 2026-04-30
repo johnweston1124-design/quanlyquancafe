@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace quanlyquancafe
 {
     public partial class frmMain : Form
     {
@@ -63,6 +63,10 @@ namespace WindowsFormsApp1
         private void btnInvoiceHistory_Click(object sender, EventArgs e)
         {
             OpenChildForm(new GUI.frmInvoiceHistory());
+        }
+        private void btnRevenueReport_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new GUI.frmRevenueReport());
         }
 
 
