@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pnlSidebar = new System.Windows.Forms.Panel();
             this.btnEmployee = new System.Windows.Forms.Button();
             this.BtnTable = new System.Windows.Forms.Button();
+            this.RevenueReport = new System.Windows.Forms.Button();
             this.btnInvoiceHistory = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
@@ -39,7 +39,6 @@
             this.btnProduct = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.RevenueReport = new System.Windows.Forms.Button();
             this.pnlSidebar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,9 +61,9 @@
             // 
             // btnEmployee
             // 
-            this.btnEmployee.Location = new System.Drawing.Point(93, 183);
+            this.btnEmployee.Location = new System.Drawing.Point(124, 173);
             this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(75, 50);
+            this.btnEmployee.Size = new System.Drawing.Size(100, 62);
             this.btnEmployee.TabIndex = 0;
             this.btnEmployee.Text = "Employee";
             this.btnEmployee.UseVisualStyleBackColor = true;
@@ -72,19 +71,29 @@
             // 
             // BtnTable
             // 
-            this.BtnTable.Location = new System.Drawing.Point(93, 101);
+            this.BtnTable.Location = new System.Drawing.Point(124, 101);
             this.BtnTable.Name = "BtnTable";
-            this.BtnTable.Size = new System.Drawing.Size(75, 50);
+            this.BtnTable.Size = new System.Drawing.Size(100, 62);
             this.BtnTable.TabIndex = 0;
             this.BtnTable.Text = "Table";
             this.BtnTable.UseVisualStyleBackColor = true;
             this.BtnTable.Click += new System.EventHandler(this.btnTable_Click);
             // 
+            // RevenueReport
+            // 
+            this.RevenueReport.Location = new System.Drawing.Point(16, 241);
+            this.RevenueReport.Name = "RevenueReport";
+            this.RevenueReport.Size = new System.Drawing.Size(100, 62);
+            this.RevenueReport.TabIndex = 0;
+            this.RevenueReport.Text = "Revenue Report";
+            this.RevenueReport.UseVisualStyleBackColor = true;
+            this.RevenueReport.Click += new System.EventHandler(this.btnRevenueReport_Click);
+            // 
             // btnInvoiceHistory
             // 
-            this.btnInvoiceHistory.Location = new System.Drawing.Point(96, 265);
+            this.btnInvoiceHistory.Location = new System.Drawing.Point(124, 241);
             this.btnInvoiceHistory.Name = "btnInvoiceHistory";
-            this.btnInvoiceHistory.Size = new System.Drawing.Size(72, 50);
+            this.btnInvoiceHistory.Size = new System.Drawing.Size(100, 62);
             this.btnInvoiceHistory.TabIndex = 0;
             this.btnInvoiceHistory.Text = "Invoice History ";
             this.btnInvoiceHistory.UseVisualStyleBackColor = true;
@@ -103,9 +112,9 @@
             // 
             // btnOrder
             // 
-            this.btnOrder.Location = new System.Drawing.Point(12, 183);
+            this.btnOrder.Location = new System.Drawing.Point(16, 173);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(75, 50);
+            this.btnOrder.Size = new System.Drawing.Size(100, 62);
             this.btnOrder.TabIndex = 0;
             this.btnOrder.Text = "Order";
             this.btnOrder.UseVisualStyleBackColor = true;
@@ -113,9 +122,9 @@
             // 
             // btnAccount
             // 
-            this.btnAccount.Location = new System.Drawing.Point(12, 101);
+            this.btnAccount.Location = new System.Drawing.Point(16, 101);
             this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(75, 50);
+            this.btnAccount.Size = new System.Drawing.Size(100, 62);
             this.btnAccount.TabIndex = 0;
             this.btnAccount.Text = "Account";
             this.btnAccount.UseVisualStyleBackColor = true;
@@ -151,16 +160,6 @@
             this.pnlContent.Size = new System.Drawing.Size(800, 480);
             this.pnlContent.TabIndex = 2;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
-            // 
-            // RevenueReport
-            // 
-            this.RevenueReport.Location = new System.Drawing.Point(12, 265);
-            this.RevenueReport.Name = "RevenueReport";
-            this.RevenueReport.Size = new System.Drawing.Size(78, 50);
-            this.RevenueReport.TabIndex = 0;
-            this.RevenueReport.Text = "Revenue Report";
-            this.RevenueReport.UseVisualStyleBackColor = true;
-            this.RevenueReport.Click += new System.EventHandler(this.btnRevenueReport_Click);
             // 
             // frmMain
             // 
