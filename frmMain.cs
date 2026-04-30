@@ -102,6 +102,10 @@ namespace quanlyquancafe
             selectedTableId = tableId;
             selectedTableName = tableName;
         }
+        private void btnRevenueReport_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new GUI.frmRevenueReport());
+        }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {

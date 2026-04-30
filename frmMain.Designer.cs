@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlSidebar = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
             this.btnEmployee = new System.Windows.Forms.Button();
             this.BtnTable = new System.Windows.Forms.Button();
             this.btnInvoiceHistory = new System.Windows.Forms.Button();
@@ -40,15 +39,15 @@
             this.btnProduct = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.RevenueReport = new System.Windows.Forms.Button();
             this.pnlSidebar.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSidebar
             // 
-            this.pnlSidebar.Controls.Add(this.button6);
             this.pnlSidebar.Controls.Add(this.btnEmployee);
             this.pnlSidebar.Controls.Add(this.BtnTable);
+            this.pnlSidebar.Controls.Add(this.RevenueReport);
             this.pnlSidebar.Controls.Add(this.btnInvoiceHistory);
             this.pnlSidebar.Controls.Add(this.btnCategory);
             this.pnlSidebar.Controls.Add(this.btnOrder);
@@ -61,23 +60,11 @@
             this.pnlSidebar.Size = new System.Drawing.Size(267, 554);
             this.pnlSidebar.TabIndex = 0;
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(16, 418);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(208, 62);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "Category";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.btnCategory_Click);
-            // 
             // btnEmployee
             // 
-            this.btnEmployee.Location = new System.Drawing.Point(124, 225);
-            this.btnEmployee.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmployee.Location = new System.Drawing.Point(93, 183);
             this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(100, 62);
+            this.btnEmployee.Size = new System.Drawing.Size(75, 50);
             this.btnEmployee.TabIndex = 0;
             this.btnEmployee.Text = "Employee";
             this.btnEmployee.UseVisualStyleBackColor = true;
@@ -85,10 +72,9 @@
             // 
             // BtnTable
             // 
-            this.BtnTable.Location = new System.Drawing.Point(124, 124);
-            this.BtnTable.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnTable.Location = new System.Drawing.Point(93, 101);
             this.BtnTable.Name = "BtnTable";
-            this.BtnTable.Size = new System.Drawing.Size(100, 62);
+            this.BtnTable.Size = new System.Drawing.Size(75, 50);
             this.BtnTable.TabIndex = 0;
             this.BtnTable.Text = "Table";
             this.BtnTable.UseVisualStyleBackColor = true;
@@ -96,12 +82,11 @@
             // 
             // btnInvoiceHistory
             // 
-            this.btnInvoiceHistory.Location = new System.Drawing.Point(16, 314);
-            this.btnInvoiceHistory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInvoiceHistory.Location = new System.Drawing.Point(96, 265);
             this.btnInvoiceHistory.Name = "btnInvoiceHistory";
-            this.btnInvoiceHistory.Size = new System.Drawing.Size(208, 62);
+            this.btnInvoiceHistory.Size = new System.Drawing.Size(72, 50);
             this.btnInvoiceHistory.TabIndex = 0;
-            this.btnInvoiceHistory.Text = "InvoiceHistory ";
+            this.btnInvoiceHistory.Text = "Invoice History ";
             this.btnInvoiceHistory.UseVisualStyleBackColor = true;
             this.btnInvoiceHistory.Click += new System.EventHandler(this.btnInvoiceHistory_Click);
             // 
@@ -118,10 +103,9 @@
             // 
             // btnOrder
             // 
-            this.btnOrder.Location = new System.Drawing.Point(16, 225);
-            this.btnOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOrder.Location = new System.Drawing.Point(12, 183);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(100, 62);
+            this.btnOrder.Size = new System.Drawing.Size(75, 50);
             this.btnOrder.TabIndex = 0;
             this.btnOrder.Text = "Order";
             this.btnOrder.UseVisualStyleBackColor = true;
@@ -129,10 +113,9 @@
             // 
             // btnAccount
             // 
-            this.btnAccount.Location = new System.Drawing.Point(16, 124);
-            this.btnAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAccount.Location = new System.Drawing.Point(12, 101);
             this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(100, 62);
+            this.btnAccount.Size = new System.Drawing.Size(75, 50);
             this.btnAccount.TabIndex = 0;
             this.btnAccount.Text = "Account";
             this.btnAccount.UseVisualStyleBackColor = true;
@@ -169,12 +152,15 @@
             this.pnlContent.TabIndex = 2;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
-            // contextMenuStrip1
+            // RevenueReport
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            this.RevenueReport.Location = new System.Drawing.Point(12, 265);
+            this.RevenueReport.Name = "RevenueReport";
+            this.RevenueReport.Size = new System.Drawing.Size(78, 50);
+            this.RevenueReport.TabIndex = 0;
+            this.RevenueReport.Text = "Revenue Report";
+            this.RevenueReport.UseVisualStyleBackColor = true;
+            this.RevenueReport.Click += new System.EventHandler(this.btnRevenueReport_Click);
             // 
             // frmMain
             // 
@@ -186,7 +172,7 @@
             this.Controls.Add(this.pnlSidebar);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
-            this.Text = "Form1";
+            this.Text = "frmMain";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlSidebar.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -200,13 +186,12 @@
         private System.Windows.Forms.Panel pnlContent;
         private System.Windows.Forms.Button btnProduct;
         private System.Windows.Forms.Button btnCategory;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnEmployee;
         private System.Windows.Forms.Button BtnTable;
         private System.Windows.Forms.Button btnInvoiceHistory;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnAccount;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button RevenueReport;
     }
 }
 

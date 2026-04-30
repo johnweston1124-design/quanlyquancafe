@@ -129,13 +129,15 @@
             // 
             // lblTableSelected
             // 
+            this.lblTableSelected.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTableSelected.AutoSize = true;
-            this.lblTableSelected.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTableSelected.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTableSelected.Location = new System.Drawing.Point(640, 9);
             this.lblTableSelected.Name = "lblTableSelected";
             this.lblTableSelected.Size = new System.Drawing.Size(168, 25);
             this.lblTableSelected.TabIndex = 0;
-            this.lblTableSelected.Text = "Bàn: (Chưa chọn)";
+            this.lblTableSelected.Text = "Bàn:";
+            this.lblTableSelected.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblTitle
             // 
@@ -143,7 +145,7 @@
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(436, 60);
+            this.lblTitle.Size = new System.Drawing.Size(500, 60);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "GỌI MÓN  VÀ THANH TOÁN";
             // 
@@ -199,6 +201,7 @@
             this.Controls.Add(this.pnlRight);
             this.Controls.Add(this.pnlLeft);
             this.Controls.Add(this.pnlHeader);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmOrder";
             this.Text = "frmOrder";
             this.Load += new System.EventHandler(this.frmOrder_Load);

@@ -22,6 +22,7 @@ namespace quanlyquancafe
         {
             InitializeComponent();
             FormatHelper.ConfigDataGridView(dgvOrderDetail);
+            lblTotal.Text = "TỔNG: 0 VNĐ";
             lblTotal.ForeColor = Color.Red;
             btnPayment.FlatStyle = FlatStyle.Flat;
             btnPayment.FlatAppearance.BorderSize = 0;
