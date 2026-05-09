@@ -18,7 +18,7 @@ namespace quanlyquancafe
         public frmLogin()
         {
             InitializeComponent();
-            btnLogin.BackColor = ThemeHelper.PrimaryColor;
+            btnLogin.BackColor =    ThemeHelper.PrimaryColor;
         }
 
         private UserBLL _bll = new UserBLL();
