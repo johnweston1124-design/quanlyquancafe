@@ -1,293 +1,328 @@
-﻿namespace quanlyquancafe
+﻿namespace quanlyquancafe.GUI
 {
     partial class frmProduct
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblProductId;
+        private System.Windows.Forms.Label lblProductName;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.Label lblUnit;
+        private System.Windows.Forms.Label lblImage;
+        private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.Label lblKeyword;
+        private System.Windows.Forms.TextBox txtProductId;
+        private System.Windows.Forms.TextBox txtProductName;
+        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.TextBox txtUnit;
+        private System.Windows.Forms.TextBox txtImage;
+        private System.Windows.Forms.ComboBox cboCategory;
+        private System.Windows.Forms.CheckBox chkStatus;
+        private System.Windows.Forms.TextBox txtKeyword;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnReload;
+        private System.Windows.Forms.DataGridView dgvProduct;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProduct));
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.Text = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.pnlInput = new System.Windows.Forms.Panel();
-            this.pnlControl = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblProductId = new System.Windows.Forms.Label();
+            this.lblProductName = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.lblUnit = new System.Windows.Forms.Label();
+            this.lblImage = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.lblKeyword = new System.Windows.Forms.Label();
+            this.txtProductId = new System.Windows.Forms.TextBox();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pnlData = new System.Windows.Forms.Panel();
-            this.dgvData = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlHeader.SuspendLayout();
-            this.pnlInput.SuspendLayout();
-            this.pnlControl.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.pnlData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.txtUnit = new System.Windows.Forms.TextBox();
+            this.txtImage = new System.Windows.Forms.TextBox();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
+            this.chkStatus = new System.Windows.Forms.CheckBox();
+            this.txtKeyword = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnReload = new System.Windows.Forms.Button();
+            this.dgvProduct = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pnlHeader
-            // 
-            this.pnlHeader.Controls.Add(this.Text);
-            this.pnlHeader.Controls.Add(this.txtSearch);
-            this.pnlHeader.Controls.Add(this.lblTitle);
-            resources.ApplyResources(this.pnlHeader, "pnlHeader");
-            this.pnlHeader.Name = "pnlHeader";
-            // 
-            // Text
-            // 
-            resources.ApplyResources(this.Text, "Text");
-            this.Text.Name = "Text";
-            // 
-            // txtSearch
-            // 
-            resources.ApplyResources(this.txtSearch, "txtSearch");
-            this.txtSearch.BackColor = System.Drawing.Color.White;
-            this.txtSearch.Name = "txtSearch";
             // 
             // lblTitle
             // 
-            resources.ApplyResources(this.lblTitle, "lblTitle");
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Location = new System.Drawing.Point(12, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
+            this.lblTitle.Size = new System.Drawing.Size(776, 35);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "QUẢN LÝ SẢN PHẨM";
             // 
-            // pnlInput
+            // lblProductId
             // 
-            this.pnlInput.Controls.Add(this.pnlControl);
-            this.pnlInput.Controls.Add(this.groupBox1);
-            resources.ApplyResources(this.pnlInput, "pnlInput");
-            this.pnlInput.Name = "pnlInput";
+            this.lblProductId.Location = new System.Drawing.Point(12, 58);
+            this.lblProductId.Name = "lblProductId";
+            this.lblProductId.Size = new System.Drawing.Size(90, 23);
+            this.lblProductId.TabIndex = 1;
+            this.lblProductId.Text = "Mã SP";
             // 
-            // pnlControl
+            // lblProductName
             // 
-            this.pnlControl.Controls.Add(this.btnAdd);
-            this.pnlControl.Controls.Add(this.btnEdit);
-            this.pnlControl.Controls.Add(this.btnDelete);
-            this.pnlControl.Controls.Add(this.btnSave);
-            resources.ApplyResources(this.pnlControl, "pnlControl");
-            this.pnlControl.Name = "pnlControl";
-            this.pnlControl.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlControl_Paint);
+            this.lblProductName.Location = new System.Drawing.Point(12, 90);
+            this.lblProductName.Name = "lblProductName";
+            this.lblProductName.Size = new System.Drawing.Size(90, 23);
+            this.lblProductName.TabIndex = 2;
+            this.lblProductName.Text = "Tên SP";
             // 
-            // btnAdd
+            // lblPrice
             // 
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.btnAdd, "btnAdd");
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.lblPrice.Location = new System.Drawing.Point(12, 122);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(90, 23);
+            this.lblPrice.TabIndex = 3;
+            this.lblPrice.Text = "Giá";
             // 
-            // btnEdit
+            // lblDescription
             // 
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.btnEdit, "btnEdit");
-            this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.lblDescription.Location = new System.Drawing.Point(12, 154);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(90, 23);
+            this.lblDescription.TabIndex = 4;
+            this.lblDescription.Text = "Mô tả";
             // 
-            // btnDelete
+            // lblUnit
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.IndianRed;
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.btnDelete, "btnDelete");
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.lblUnit.Location = new System.Drawing.Point(406, 58);
+            this.lblUnit.Name = "lblUnit";
+            this.lblUnit.Size = new System.Drawing.Size(100, 23);
+            this.lblUnit.TabIndex = 5;
+            this.lblUnit.Text = "Đơn vị";
             // 
-            // btnSave
+            // lblImage
             // 
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.btnSave, "btnSave");
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.lblImage.Location = new System.Drawing.Point(406, 90);
+            this.lblImage.Name = "lblImage";
+            this.lblImage.Size = new System.Drawing.Size(100, 23);
+            this.lblImage.TabIndex = 6;
+            this.lblImage.Text = "Hình";
             // 
-            // groupBox1
+            // lblCategory
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtProductName);
-            this.groupBox1.Controls.Add(this.txtPrice);
-            this.groupBox1.Controls.Add(this.txtQuantity);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
+            this.lblCategory.Location = new System.Drawing.Point(406, 122);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(100, 23);
+            this.lblCategory.TabIndex = 7;
+            this.lblCategory.Text = "Danh mục";
             // 
-            // label1
+            // lblKeyword
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            this.lblKeyword.Location = new System.Drawing.Point(12, 196);
+            this.lblKeyword.Name = "lblKeyword";
+            this.lblKeyword.Size = new System.Drawing.Size(90, 23);
+            this.lblKeyword.TabIndex = 8;
+            this.lblKeyword.Text = "Từ khóa";
+            // 
+            // txtProductId
+            // 
+            this.txtProductId.Location = new System.Drawing.Point(108, 55);
+            this.txtProductId.Name = "txtProductId";
+            this.txtProductId.ReadOnly = true;
+            this.txtProductId.Size = new System.Drawing.Size(250, 23);
+            this.txtProductId.TabIndex = 9;
             // 
             // txtProductName
             // 
-            resources.ApplyResources(this.txtProductName, "txtProductName");
+            this.txtProductName.Location = new System.Drawing.Point(108, 87);
             this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(250, 23);
+            this.txtProductName.TabIndex = 10;
             // 
             // txtPrice
             // 
-            resources.ApplyResources(this.txtPrice, "txtPrice");
+            this.txtPrice.Location = new System.Drawing.Point(108, 119);
             this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(250, 23);
+            this.txtPrice.TabIndex = 11;
             // 
-            // txtQuantity
+            // txtDescription
             // 
-            resources.ApplyResources(this.txtQuantity, "txtQuantity");
-            this.txtQuantity.Name = "txtQuantity";
+            this.txtDescription.Location = new System.Drawing.Point(108, 151);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(250, 23);
+            this.txtDescription.TabIndex = 12;
             // 
-            // label2
+            // txtUnit
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            this.txtUnit.Location = new System.Drawing.Point(512, 55);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.Size = new System.Drawing.Size(250, 23);
+            this.txtUnit.TabIndex = 13;
             // 
-            // label3
+            // txtImage
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
+            this.txtImage.Location = new System.Drawing.Point(512, 87);
+            this.txtImage.Name = "txtImage";
+            this.txtImage.Size = new System.Drawing.Size(250, 23);
+            this.txtImage.TabIndex = 14;
             // 
-            // pnlData
+            // cboCategory
             // 
-            this.pnlData.Controls.Add(this.dgvData);
-            resources.ApplyResources(this.pnlData, "pnlData");
-            this.pnlData.Name = "pnlData";
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(512, 119);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(250, 23);
+            this.cboCategory.TabIndex = 15;
             // 
-            // dgvData
+            // chkStatus
             // 
-            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
-            this.colName,
-            this.colPrice,
-            this.colUnit,
-            this.colCategory});
-            resources.ApplyResources(this.dgvData, "dgvData");
-            this.dgvData.Name = "dgvData";
-            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
+            this.chkStatus.AutoSize = true;
+            this.chkStatus.Location = new System.Drawing.Point(512, 154);
+            this.chkStatus.Name = "chkStatus";
+            this.chkStatus.Size = new System.Drawing.Size(90, 19);
+            this.chkStatus.TabIndex = 16;
+            this.chkStatus.Text = "Đang bán";
+            this.chkStatus.UseVisualStyleBackColor = true;
             // 
-            // colID
+            // txtKeyword
             // 
-            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colID.DataPropertyName = "ProductId";
-            resources.ApplyResources(this.colID, "colID");
-            this.colID.Name = "colID";
+            this.txtKeyword.Location = new System.Drawing.Point(108, 193);
+            this.txtKeyword.Name = "txtKeyword";
+            this.txtKeyword.Size = new System.Drawing.Size(410, 23);
+            this.txtKeyword.TabIndex = 17;
             // 
-            // colName
+            // btnSearch
             // 
-            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colName.DataPropertyName = "ProductName";
-            resources.ApplyResources(this.colName, "colName");
-            this.colName.Name = "colName";
+            this.btnSearch.Location = new System.Drawing.Point(534, 191);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(100, 28);
+            this.btnSearch.TabIndex = 18;
+            this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // colPrice
+            // btnAdd
             // 
-            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPrice.DataPropertyName = "Price";
-            resources.ApplyResources(this.colPrice, "colPrice");
-            this.colPrice.Name = "colPrice";
+            this.btnAdd.Location = new System.Drawing.Point(12, 232);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(90, 32);
+            this.btnAdd.TabIndex = 19;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // colUnit
+            // btnUpdate
             // 
-            this.colUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            resources.ApplyResources(this.colUnit, "colUnit");
-            this.colUnit.Name = "colUnit";
+            this.btnUpdate.Location = new System.Drawing.Point(108, 232);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(90, 32);
+            this.btnUpdate.TabIndex = 20;
+            this.btnUpdate.Text = "Sửa";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // colCategory
+            // btnDelete
             // 
-            this.colCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colCategory.DataPropertyName = "CategoryId";
-            resources.ApplyResources(this.colCategory, "colCategory");
-            this.colCategory.Name = "colCategory";
+            this.btnDelete.Location = new System.Drawing.Point(204, 232);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(90, 32);
+            this.btnDelete.TabIndex = 21;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(300, 232);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(90, 32);
+            this.btnReset.TabIndex = 22;
+            this.btnReset.Text = "Nhập lại";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnReload
+            // 
+            this.btnReload.Location = new System.Drawing.Point(396, 232);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(90, 32);
+            this.btnReload.TabIndex = 23;
+            this.btnReload.Text = "Tải lại";
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // dgvProduct
+            // 
+            this.dgvProduct.AllowUserToAddRows = false;
+            this.dgvProduct.AllowUserToDeleteRows = false;
+            this.dgvProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduct.Location = new System.Drawing.Point(12, 280);
+            this.dgvProduct.Name = "dgvProduct";
+            this.dgvProduct.ReadOnly = true;
+            this.dgvProduct.RowTemplate.Height = 25;
+            this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProduct.Size = new System.Drawing.Size(776, 158);
+            this.dgvProduct.TabIndex = 24;
+            this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
             // 
             // frmProduct
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.pnlData);
-            this.Controls.Add(this.pnlInput);
-            this.Controls.Add(this.pnlHeader);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvProduct);
+            this.Controls.Add(this.btnReload);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtKeyword);
+            this.Controls.Add(this.chkStatus);
+            this.Controls.Add(this.cboCategory);
+            this.Controls.Add(this.txtImage);
+            this.Controls.Add(this.txtUnit);
+            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.txtProductName);
+            this.Controls.Add(this.txtProductId);
+            this.Controls.Add(this.lblKeyword);
+            this.Controls.Add(this.lblCategory);
+            this.Controls.Add(this.lblImage);
+            this.Controls.Add(this.lblUnit);
+            this.Controls.Add(this.lblDescription);
+            this.Controls.Add(this.lblPrice);
+            this.Controls.Add(this.lblProductName);
+            this.Controls.Add(this.lblProductId);
+            this.Controls.Add(this.lblTitle);
             this.Name = "frmProduct";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
-            this.pnlInput.ResumeLayout(false);
-            this.pnlInput.PerformLayout();
-            this.pnlControl.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.pnlData.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sản phẩm";
+            this.Load += new System.EventHandler(this.frmProduct_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.ResumeLayout(false);
-
+            this.PerformLayout();
         }
-
-        #endregion
-
-        private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Panel pnlInput;
-        private System.Windows.Forms.Label Text;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Panel pnlData;
-        private System.Windows.Forms.TextBox txtProductName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtQuantity;
-        private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel pnlControl;
-        private System.Windows.Forms.DataGridView dgvData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUnit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCategory;
     }
 }
