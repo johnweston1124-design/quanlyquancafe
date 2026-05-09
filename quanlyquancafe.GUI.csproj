@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="FormatHelper.cs" />
     <Compile Include="frmAccount.cs">
       <SubType>Form</SubType>
@@ -95,25 +94,6 @@
     </Compile>
     <Compile Include="frmOrder.Designer.cs">
       <DependentUpon>frmOrder.cs</DependentUpon>
-=======
-    <Compile Include="frmCategory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCategory.Designer.cs">
-      <DependentUpon>frmCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmEmployee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEmployee.Designer.cs">
-      <DependentUpon>frmEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmInvoiceHistory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmInvoiceHistory.Designer.cs">
-      <DependentUpon>frmInvoiceHistory.cs</DependentUpon>
->>>>>>> feature/product
     </Compile>
     <Compile Include="frmProduct.cs">
       <SubType>Form</SubType>
@@ -127,30 +107,6 @@
     <Compile Include="frmRevenueReport.Designer.cs">
       <DependentUpon>frmRevenueReport.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThemeHelper.cs" />
-    <EmbeddedResource Include="frmAccount.resx">
-      <DependentUpon>frmAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCategory.resx">
-      <DependentUpon>frmCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEmployee.resx">
-      <DependentUpon>frmEmployee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmInvoiceHistory.resx">
-      <DependentUpon>frmInvoiceHistory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-=======
->>>>>>> feature/product
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCategory.resx">
@@ -191,7 +147,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ProjectReference Include="C:\Users\Dell\source\repos\quanlyquancafe.BLL\quanlyquancafe.BLL.csproj">
       <Project>{020a62fb-7c2d-4e89-956f-1301521af756}</Project>
       <Name>quanlyquancafe.BLL</Name>
@@ -202,14 +157,6 @@
     </ProjectReference>
     <ProjectReference Include="C:\Users\Dell\source\repos\quanlyquancafe.DTO\quanlyquancafe.DTO.csproj">
       <Project>{b0fe323f-4677-4968-9cc3-dcbe259372c2}</Project>
-=======
-    <ProjectReference Include="quanlyquancafe.BLL\quanlyquancafe.BLL.csproj">
-      <Project>{45373f61-5414-0257-1cb1-0ce6f8f62980}</Project>
-      <Name>quanlyquancafe.BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="quanlyquancafe.DTO\quanlyquancafe.DTO.csproj">
-      <Project>{42a78d0e-96fd-4bdf-b5c4-c043b5073eaa}</Project>
->>>>>>> feature/product
       <Name>quanlyquancafe.DTO</Name>
     </ProjectReference>
   </ItemGroup>
