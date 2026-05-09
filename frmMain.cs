@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using quanlyquancafe.BLL;
 using quanlyquancafe.DTO;
+using quanlyquancafe.GUI;
 
 namespace quanlyquancafe
 {

@@ -1,4 +1,4 @@
-﻿namespace quanlyquancafe.GUI
+﻿namespace quanlyquancafe
 {
     partial class frmInvoiceHistory
     {
@@ -140,7 +140,7 @@
             // 
             // btnPrintInvoice
             // 
-            this.btnPrintInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnPrintInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrintInvoice.AutoSize = true;
             this.btnPrintInvoice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

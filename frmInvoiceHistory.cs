@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace quanlyquancafe.GUI
+namespace quanlyquancafe
 {
     public partial class frmInvoiceHistory : Form
     {
