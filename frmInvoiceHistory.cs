@@ -32,5 +32,9 @@ namespace quanlyquancafe.GUI
             dtpFromDate.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
         }
 
+        private void dgvInvoices_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
