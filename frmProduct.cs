@@ -25,10 +25,15 @@ namespace quanlyquancafe.GUI
         private void LoadCategoryComboBox()
         {
             DataTable dt = productBLL.GetCategories();
+            DataRow dr = dt.NewRow();
+            dr["CategoryId"] = -1;
+            dr["CategoryName"] = "--- Tất cả danh mục ---";
+            dt.Rows.InsertAt(dr, 0);
+
             cboCategory.DataSource = dt;
             cboCategory.DisplayMember = "CategoryName";
             cboCategory.ValueMember = "CategoryId";
-            cboCategory.SelectedIndex = -1;
+            cboCategory.SelectedIndex = 0;
         }
 
         private void LoadProductData()
@@ -63,6 +68,19 @@ namespace quanlyquancafe.GUI
             }
         }
 
+        private void ExecuteSearch()
+        {
+            string keyword = txtKeyword.Text.Trim();
+            int categoryId = -1;
+
+            if (cboCategory.SelectedValue != null && cboCategory.SelectedValue is int)
+            {
+                categoryId = (int)cboCategory.SelectedValue;
+            }
+
+            dgvProduct.DataSource = productBLL.SearchProducts(keyword, categoryId);
+        }
+
         private void ResetForm()
         {
             txtProductId.Text = "";
@@ -73,7 +91,7 @@ namespace quanlyquancafe.GUI
             txtImage.Text = "";
             txtKeyword.Text = "";
             chkStatus.Checked = true;
-            cboCategory.SelectedIndex = -1;
+            cboCategory.SelectedIndex = 0;
         }
 
         private void btnReload_Click(object sender, EventArgs e)
@@ -88,7 +106,15 @@ namespace quanlyquancafe.GUI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            dgvProduct.DataSource = productBLL.SearchProducts(txtKeyword.Text.Trim());
+            ExecuteSearch();
+        }
+
+        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboCategory.Focused)
+            {
+                ExecuteSearch();
+            }
         }
 
         private ProductDTO BuildProductFromForm()

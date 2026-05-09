@@ -137,5 +137,22 @@ namespace quanlyquancafe.DAL
             int count = Convert.ToInt32(DataProvider.ExecuteScalar(query, parameters));
             return count > 0;
         }
+
+        public DataTable SearchProducts(string keyword, int categoryId)
+        {
+            throw new NotImplementedException();
+        }
+        public DataTable SearchProducts(string keyword, int categoryId)
+        {
+            // Query này vừa lọc theo tên (LIKE), vừa lọc theo Category (nếu != -1)
+            string query = string.Format("SELECT p.*, c.CategoryName FROM Product p JOIN Category c ON p.CategoryId = c.CategoryId WHERE p.ProductName LIKE N'%{0}%'", keyword);
+
+            if (categoryId != -1)
+            {
+                query += " AND p.CategoryId = " + categoryId;
+            }
+
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
     }
 }

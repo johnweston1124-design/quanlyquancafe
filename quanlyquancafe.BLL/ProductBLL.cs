@@ -40,5 +40,9 @@ namespace quanlyquancafe.BLL
         {
             return productDAL.Delete(productId);
         }
+        public DataTable SearchProducts(string keyword, int categoryId)
+        {
+            return productDAL.SearchProducts(keyword, categoryId);
+        }
     }
 }
