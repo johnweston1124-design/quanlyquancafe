@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using quanlyquancafe.DTO;
@@ -140,19 +142,29 @@ namespace quanlyquancafe.DAL
 
         public DataTable SearchProducts(string keyword, int categoryId)
         {
-            throw new NotImplementedException();
-        }
-        public DataTable SearchProducts(string keyword, int categoryId)
-        {
-            // Query này vừa lọc theo tên (LIKE), vừa lọc theo Category (nếu != -1)
-            string query = string.Format("SELECT p.*, c.CategoryName FROM Product p JOIN Category c ON p.CategoryId = c.CategoryId WHERE p.ProductName LIKE N'%{0}%'", keyword);
+            string query = @"
+                SELECT p.ProductId, p.ProductName, p.CategoryId, c.CategoryName,
+                       p.Price, p.Description, p.Unit, p.Image, p.Status,
+                       p.CreatedAt, p.UpdatedAt, p.IsActive
+                FROM Products p
+                INNER JOIN Categories c ON p.CategoryId = c.CategoryId
+                WHERE p.ProductName LIKE @Keyword";
 
             if (categoryId != -1)
             {
-                query += " AND p.CategoryId = " + categoryId;
+                query += " AND p.CategoryId = @CategoryId";
             }
 
-            return DataProvider.Instance.ExecuteQuery(query);
+            query += " ORDER BY p.ProductId DESC";
+
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@Keyword", "%" + keyword + "%"));
+            if (categoryId != -1)
+            {
+                parameters.Add(new SqlParameter("@CategoryId", categoryId));
+            }
+
+            return DataProvider.ExecuteQuery(query, parameters.ToArray());
         }
     }
 }
