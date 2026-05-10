@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="../../../Downloads/CafeManager/CafeManager/CafeManager.csproj" Id="db14083b-e879-4627-a220-cef993f6eb66" />
+  <Project Path="bll/BLL.csproj" Id="d119731c-e235-421f-b368-2ffdf2858418" />
+  <Project Path="DAL/DAL.csproj" Id="8aefcb7d-248d-40e0-949c-82ee13546003" />
+  <Project Path="DTO/DTO.csproj" Id="01267ed2-0e0d-47e5-bd9d-daf341b811d6" />
+  <Project Path="quanlyquancafe.csproj" />
 </Solution>
