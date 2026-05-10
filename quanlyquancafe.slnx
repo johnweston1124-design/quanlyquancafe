@@ -1,10 +1,6 @@
 <Solution>
-  <Project Path="quanlyquancafe.BLL/quanlyquancafe.BLL.csproj">
-    <Build Solution="Debug|*" Project="false" />
-  </Project>
+  <Project Path="quanlyquancafe.BLL/quanlyquancafe.BLL.csproj" />
   <Project Path="quanlyquancafe.DAL/quanlyquancafe.DAL.csproj" />
-  <Project Path="quanlyquancafe.DTO/quanlyquancafe.DTO.csproj">
-    <Build Solution="Debug|*" Project="false" />
-  </Project>
+  <Project Path="quanlyquancafe.DTO/quanlyquancafe.DTO.csproj" />
   <Project Path="quanlyquancafe.GUI.csproj" Id="c89f0a26-3624-47d4-9bed-95b207f8148f" />
 </Solution>

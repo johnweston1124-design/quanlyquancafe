@@ -6,29 +6,36 @@ namespace quanlyquancafe.DAL
 {
     public class OrderDAL
     {
-        // File: quanlyquancafe.DAL\OrderDAL.cs
         public int CreateOrder(int tableId, int employeeId = 2)
         {
             if (tableId <= 0)
                 throw new ArgumentException("Invalid tableId", nameof(tableId));
 
-            // Verify CafeTables contains this tableId
             string checkQuery = "SELECT COUNT(1) FROM CafeTables WHERE TableId = @TableId";
-            object exists = DataProvider.Instance.ExecuteScalar(
+
+            object exists = DataProvider.ExecuteScalar(
                 checkQuery,
-                new SqlParameter("@TableId", tableId));
+                new SqlParameter[]
+                {
+                    new SqlParameter("@TableId", tableId)
+                }
+            );
+
             if (Convert.ToInt32(exists) == 0)
                 throw new InvalidOperationException($"TableId {tableId} does not exist in CafeTables.");
 
             string query = @"
-        INSERT INTO Orders(TableId, EmployeeId, OrderStatus, CreatedAt, TotalAmount, FinalAmount)
-        OUTPUT INSERTED.OrderId
-        VALUES (@TableId, @EmployeeId, N'Pending', GETDATE(), 0, 0)";
+                INSERT INTO Orders(TableId, EmployeeId, OrderStatus, CreatedAt, TotalAmount, FinalAmount)
+                OUTPUT INSERTED.OrderId
+                VALUES (@TableId, @EmployeeId, N'Pending', GETDATE(), 0, 0)";
 
-            object result = DataProvider.Instance.ExecuteScalar(
+            object result = DataProvider.ExecuteScalar(
                 query,
-                new SqlParameter("@TableId", tableId),
-                new SqlParameter("@EmployeeId", employeeId)
+                new SqlParameter[]
+                {
+                    new SqlParameter("@TableId", tableId),
+                    new SqlParameter("@EmployeeId", employeeId)
+                }
             );
 
             return Convert.ToInt32(result);
@@ -40,13 +47,16 @@ namespace quanlyquancafe.DAL
                 INSERT INTO OrderDetails (OrderId, ProductId, Quantity, UnitPrice, LineTotal)
                 VALUES (@OrderId, @ProductId, @Quantity, @UnitPrice, @LineTotal)";
 
-            DataProvider.Instance.ExecuteNonQuery(
+            DataProvider.ExecuteNonQuery(
                 query,
-                new SqlParameter("@OrderId", orderId),
-                new SqlParameter("@ProductId", productId),
-                new SqlParameter("@Quantity", quantity),
-                new SqlParameter("@UnitPrice", unitPrice),
-                new SqlParameter("@LineTotal", quantity * unitPrice)
+                new SqlParameter[]
+                {
+                    new SqlParameter("@OrderId", orderId),
+                    new SqlParameter("@ProductId", productId),
+                    new SqlParameter("@Quantity", quantity),
+                    new SqlParameter("@UnitPrice", unitPrice),
+                    new SqlParameter("@LineTotal", quantity * unitPrice)
+                }
             );
         }
 
@@ -62,9 +72,12 @@ namespace quanlyquancafe.DAL
                 JOIN Products p ON d.ProductId = p.ProductId
                 WHERE d.OrderId = @OrderId";
 
-            return DataProvider.Instance.ExecuteQuery(
+            return DataProvider.ExecuteQuery(
                 query,
-                new SqlParameter("@OrderId", orderId)
+                new SqlParameter[]
+                {
+                    new SqlParameter("@OrderId", orderId)
+                }
             );
         }
 
@@ -75,9 +88,12 @@ namespace quanlyquancafe.DAL
                 FROM OrderDetails
                 WHERE OrderId = @OrderId";
 
-            object result = DataProvider.Instance.ExecuteScalar(
+            object result = DataProvider.ExecuteScalar(
                 query,
-                new SqlParameter("@OrderId", orderId)
+                new SqlParameter[]
+                {
+                    new SqlParameter("@OrderId", orderId)
+                }
             );
 
             return Convert.ToDecimal(result);
@@ -86,27 +102,35 @@ namespace quanlyquancafe.DAL
         public void Pay(int orderId)
         {
             string query = @"
-        UPDATE Orders
-        SET OrderStatus = N'Paid',
-            PaidAt = GETDATE()
-        WHERE OrderId = @OrderId";
+                UPDATE Orders
+                SET OrderStatus = N'Paid',
+                    PaidAt = GETDATE()
+                WHERE OrderId = @OrderId";
 
-            DataProvider.Instance.ExecuteNonQuery(
+            DataProvider.ExecuteNonQuery(
                 query,
-                new SqlParameter("@OrderId", orderId)
+                new SqlParameter[]
+                {
+                    new SqlParameter("@OrderId", orderId)
+                }
             );
         }
 
         public int GetUnpaidOrder(int tableId)
         {
             string query = @"
-        SELECT TOP 1 OrderId 
-        FROM Orders 
-        WHERE TableId = @tableId AND OrderStatus = N'Pending'
-    ";
+                SELECT TOP 1 OrderId 
+                FROM Orders 
+                WHERE TableId = @tableId AND OrderStatus = N'Pending'
+            ";
 
-            object result = DataProvider.Instance.ExecuteScalar(query,
-                new SqlParameter("@tableId", tableId));
+            object result = DataProvider.ExecuteScalar(
+                query,
+                new SqlParameter[]
+                {
+                    new SqlParameter("@tableId", tableId)
+                }
+            );
 
             if (result != null && result != DBNull.Value)
                 return Convert.ToInt32(result);
@@ -116,18 +140,26 @@ namespace quanlyquancafe.DAL
 
         public int GetActiveOrderId(int tableId)
         {
-            // We only want the ID of the order that is 'Pending'
-            string query = "SELECT OrderId FROM Orders WHERE TableId = @tableId AND OrderStatus = N'Pending'";
+            string query = @"
+                SELECT OrderId 
+                FROM Orders 
+                WHERE TableId = @tableId 
+                AND OrderStatus = N'Pending'
+            ";
 
-            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new SqlParameter("@tableId", tableId));
+            DataTable dt = DataProvider.ExecuteQuery(
+                query,
+                new SqlParameter[]
+                {
+                    new SqlParameter("@tableId", tableId)
+                }
+            );
 
             if (dt.Rows.Count > 0)
             {
-                // Return the OrderId if found
                 return Convert.ToInt32(dt.Rows[0]["OrderId"]);
             }
 
-            // Return -1 if no pending order exists (table is empty)
             return -1;
         }
 
@@ -135,9 +167,12 @@ namespace quanlyquancafe.DAL
         {
             string query = "DELETE FROM OrderDetails WHERE OrderDetailId = @Id";
 
-            DataProvider.Instance.ExecuteNonQuery(
+            DataProvider.ExecuteNonQuery(
                 query,
-                new SqlParameter("@Id", orderDetailId)
+                new SqlParameter[]
+                {
+                    new SqlParameter("@Id", orderDetailId)
+                }
             );
         }
     }

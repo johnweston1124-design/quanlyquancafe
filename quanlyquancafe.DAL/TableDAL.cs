@@ -19,7 +19,7 @@ namespace quanlyquancafe.DAL
                 FROM CafeTables
             ";
 
-            return DataProvider.Instance.ExecuteQuery(query);
+            return DataProvider.ExecuteQuery(query);
         }
 
         public void Insert(string name, int capacity, string status, string zone)
@@ -29,14 +29,15 @@ namespace quanlyquancafe.DAL
                 VALUES (@name, @capacity, @status, @zone)
             ";
 
-            DataProvider.Instance.ExecuteNonQuery(
+            DataProvider.ExecuteNonQuery(
                 query,
-                CommandType.Text,
-                null,
-                new SqlParameter("@name", name),
-                new SqlParameter("@capacity", capacity),
-                new SqlParameter("@status", status),
-                new SqlParameter("@zone", (object)zone ?? DBNull.Value)
+                new SqlParameter[]
+                {
+                    new SqlParameter("@name", name),
+                    new SqlParameter("@capacity", capacity),
+                    new SqlParameter("@status", status),
+                    new SqlParameter("@zone", (object)zone ?? DBNull.Value)
+                }
             );
         }
 
@@ -53,16 +54,17 @@ namespace quanlyquancafe.DAL
                 WHERE TableId = @id
             ";
 
-            DataProvider.Instance.ExecuteNonQuery(
+            DataProvider.ExecuteNonQuery(
                 query,
-                CommandType.Text,
-                null,
-                new SqlParameter("@id", id),
-                new SqlParameter("@name", name),
-                new SqlParameter("@capacity", capacity),
-                new SqlParameter("@status", status),
-                new SqlParameter("@active", isActive),
-                new SqlParameter("@zone", (object)zone ?? DBNull.Value)
+                new SqlParameter[]
+                {
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@name", name),
+                    new SqlParameter("@capacity", capacity),
+                    new SqlParameter("@status", status),
+                    new SqlParameter("@active", isActive),
+                    new SqlParameter("@zone", (object)zone ?? DBNull.Value)
+                }
             );
         }
 
@@ -70,12 +72,13 @@ namespace quanlyquancafe.DAL
         {
             string query = "DELETE FROM CafeTables WHERE TableId = @id";
 
-            DataProvider.Instance.ExecuteNonQuery(
+            DataProvider.ExecuteNonQuery(
                 query,
-                CommandType.Text,
-                null,
-                new SqlParameter("@id", id)
+                new SqlParameter[]
+                {
+                    new SqlParameter("@id", id)
+                }
             );
         }
-    }   
+    }
 }

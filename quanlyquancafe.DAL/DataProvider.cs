@@ -5,7 +5,11 @@ namespace quanlyquancafe.DAL
 {
     public class DataProvider
     {
-        private static string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=CoffeeShopDB;Integrated Security=True";
+        private static string connectionString =
+        @"Data Source=localhost;
+Initial Catalog=CoffeeShopDB;
+Integrated Security=True;
+TrustServerCertificate=True";
 
         public static DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
         {

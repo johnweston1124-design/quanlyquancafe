@@ -1,13 +1,19 @@
-﻿using System;
-using System.Data;
-using quanlyquancafe.DAL;
+﻿using quanlyquancafe.DAL;
 using quanlyquancafe.DTO;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace quanlyquancafe.BLL
 {
     public class EmployeeBLL
     {
         private EmployeeDAL employeeDAL = new EmployeeDAL();
+
+        public DataTable GetAll()
+        {
+            return employeeDAL.GetAll();
+        }
 
         public DataTable GetAllEmployees()
         {

@@ -41,5 +41,10 @@ namespace quanlyquancafe.GUI
         {
 
         }
+
+        private void pnlControl_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
