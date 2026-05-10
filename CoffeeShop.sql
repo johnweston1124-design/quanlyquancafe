@@ -21,17 +21,17 @@ GO
 /* ---------- Employees ---------- */
 CREATE TABLE Employees
 (
-    EmployeeId INT IDENTITY(1,1) NOT NULL,
-    FullName NVARCHAR(100) NOT NULL,
-    Gender NVARCHAR(10) NULL,
-    DateOfBirth DATE NULL,
-    Phone NVARCHAR(20) NULL,
-    Address NVARCHAR(255) NULL,
-    HireDate DATE NOT NULL CONSTRAINT DF_Employees_HireDate DEFAULT (CONVERT(DATE, GETDATE())),
-    Salary DECIMAL(18,2) NULL,
-    CONSTRAINT PK_Employees PRIMARY KEY (EmployeeId),
-    CONSTRAINT CK_Employees_Gender CHECK (Gender IS NULL OR Gender IN (N'Male', N'Female', N'Other')),
-    CONSTRAINT CK_Employees_Salary CHECK (Salary IS NULL OR Salary >= 0)
+		EmployeeId INT IDENTITY(1,1) NOT NULL,
+		FullName NVARCHAR(100) NOT NULL,
+		Gender NVARCHAR(10) NULL,
+		DateOfBirth DATE NULL,
+		Phone NVARCHAR(20) NULL,
+		Address NVARCHAR(255) NULL,
+		HireDate DATE NOT NULL CONSTRAINT DF_Employees_HireDate DEFAULT (CONVERT(DATE, GETDATE())),
+		Salary DECIMAL(18,2) NULL,
+		CONSTRAINT PK_Employees PRIMARY KEY (EmployeeId),
+		CONSTRAINT CK_Employees_Gender CHECK (Gender IS NULL OR Gender IN (N'Male', N'Female', N'Other')),
+		CONSTRAINT CK_Employees_Salary CHECK (Salary IS NULL OR Salary >= 0)
 );
 GO
 
@@ -460,5 +460,10 @@ VALUES
     (10, 55000, 58000, '2026-03-10 09:00:00', 1, N'Điều chỉnh theo chi phí nguyên liệu'),
     (11, 40000, 42000, '2026-03-12 09:00:00', 1, N'Cập nhật menu mới');
 GO
+
+-- Ngăn insert trùng cùng món trong cùng order
+ALTER TABLE OrderDetails
+ADD CONSTRAINT UQ_OrderDetails_OrderProduct 
+UNIQUE (OrderId, ProductId)
 
 
