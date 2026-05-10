@@ -1,39 +1,37 @@
-﻿namespace quanlyquancafe.GUI
-{
-    partial class frmCategory
+﻿    namespace quanlyquancafe.GUI
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+        partial class frmCategory
         {
-            if (disposing && (components != null))
+            /// <summary>
+            /// Required designer variable.
+            /// </summary>
+            private System.ComponentModel.IContainer components = null;
+
+            /// <summary>
+            /// Clean up any resources being used.
+            /// </summary>
+            /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+            protected override void Dispose(bool disposing)
             {
-                components.Dispose();
+                if (disposing && (components != null))
+                {
+                    components.Dispose();
+                }
+                base.Dispose(disposing);
             }
-            base.Dispose(disposing);
-        }
 
-        #region Windows Form Designer generated code
+            #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+            /// <summary>
+            /// Required method for Designer support - do not modify
+            /// the contents of this method with the code editor.
+            /// </summary>
+            private void InitializeComponent()
+            {
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlData = new System.Windows.Forms.Panel();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlInput = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -58,7 +56,7 @@
             this.lblTitle.Location = new System.Drawing.Point(13, 9);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(250, 30);
+            this.lblTitle.Size = new System.Drawing.Size(320, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "DANH MỤC SẢN PHẨM";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -72,6 +70,7 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(933, 50);
             this.pnlHeader.TabIndex = 1;
+            this.pnlHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHeader_Paint);
             // 
             // pnlData
             // 
@@ -88,26 +87,13 @@
             // 
             this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
-            this.colName});
             this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvData.Location = new System.Drawing.Point(0, 0);
             this.dgvData.Name = "dgvData";
+            this.dgvData.RowHeadersWidth = 51;
             this.dgvData.Size = new System.Drawing.Size(933, 538);
             this.dgvData.TabIndex = 0;
-            // 
-            // colID
-            // 
-            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colID.HeaderText = "Mã Danh Mục";
-            this.colID.Name = "colID";
-            // 
-            // colName
-            // 
-            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colName.HeaderText = "Tên Danh Mục";
-            this.colName.Name = "colName";
+            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             // 
             // pnlInput
             // 
@@ -205,7 +191,7 @@
             // 
             this.txtCategoryName.Location = new System.Drawing.Point(371, 63);
             this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.Size = new System.Drawing.Size(178, 25);
+            this.txtCategoryName.Size = new System.Drawing.Size(178, 29);
             this.txtCategoryName.TabIndex = 2;
             // 
             // txtCategoryID
@@ -214,7 +200,7 @@
             this.txtCategoryID.Location = new System.Drawing.Point(241, 63);
             this.txtCategoryID.Name = "txtCategoryID";
             this.txtCategoryID.ReadOnly = true;
-            this.txtCategoryID.Size = new System.Drawing.Size(100, 25);
+            this.txtCategoryID.Size = new System.Drawing.Size(100, 29);
             this.txtCategoryID.TabIndex = 1;
             // 
             // label2
@@ -222,7 +208,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(368, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 17);
+            this.label2.Size = new System.Drawing.Size(122, 23);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên danh mục:";
             // 
@@ -231,13 +217,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(238, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 17);
+            this.label1.Size = new System.Drawing.Size(120, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã danh mục:";
             // 
             // frmCategory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(933, 588);
@@ -259,25 +245,23 @@
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
-        }
+            }
 
-        #endregion
+            #endregion
 
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.Panel pnlData;
-        private System.Windows.Forms.Panel pnlInput;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtCategoryID;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCategoryName;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DataGridView dgvData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+            private System.Windows.Forms.Label lblTitle;
+            private System.Windows.Forms.Panel pnlHeader;
+            private System.Windows.Forms.Panel pnlData;
+            private System.Windows.Forms.Panel pnlInput;
+            private System.Windows.Forms.GroupBox groupBox1;
+            private System.Windows.Forms.TextBox txtCategoryID;
+            private System.Windows.Forms.Label label2;
+            private System.Windows.Forms.Label label1;
+            private System.Windows.Forms.TextBox txtCategoryName;
+            private System.Windows.Forms.Button btnAdd;
+            private System.Windows.Forms.Button btnEdit;
+            private System.Windows.Forms.Button btnDelete;
+            private System.Windows.Forms.Button btnSave;
+            private System.Windows.Forms.DataGridView dgvData;
     }
-}
+    }

@@ -40,10 +40,16 @@ namespace quanlyquancafe
 
         public void OpenChildForm(Form childForm)
         {
-            if (currentChildForm != null)
+            foreach (Control ctrl in pnlContent.Controls)
             {
-                currentChildForm.Close();
+                if (ctrl is Form f)
+                {
+                    f.Close();
+                    f.Dispose();
+                }
             }
+            pnlContent.Controls.Clear(); 
+
             currentChildForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;

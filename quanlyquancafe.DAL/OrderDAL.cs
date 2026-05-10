@@ -43,41 +43,78 @@ namespace quanlyquancafe.DAL
 
         public void AddItem(int orderId, int productId, int quantity, decimal unitPrice)
         {
-            string query = @"
-                INSERT INTO OrderDetails (OrderId, ProductId, Quantity, UnitPrice, LineTotal)
-                VALUES (@OrderId, @ProductId, @Quantity, @UnitPrice, @LineTotal)";
+            string checkQuery = @"
+        SELECT OrderDetailId, Quantity 
+        FROM OrderDetails 
+        WHERE OrderId = @OrderId AND ProductId = @ProductId";
 
-            DataProvider.ExecuteNonQuery(
-                query,
+            DataTable existing = DataProvider.ExecuteQuery(
+                checkQuery,
                 new SqlParameter[]
                 {
-                    new SqlParameter("@OrderId", orderId),
-                    new SqlParameter("@ProductId", productId),
-                    new SqlParameter("@Quantity", quantity),
-                    new SqlParameter("@UnitPrice", unitPrice),
-                    new SqlParameter("@LineTotal", quantity * unitPrice)
+            new SqlParameter("@OrderId", orderId),
+            new SqlParameter("@ProductId", productId)
                 }
             );
+
+            if (existing.Rows.Count > 0)
+            {
+                int existingId = Convert.ToInt32(existing.Rows[0]["OrderDetailId"]);
+                int newQty = Convert.ToInt32(existing.Rows[0]["Quantity"]) + quantity;
+                decimal newLineTotal = newQty * unitPrice;
+
+                string updateQuery = @"
+            UPDATE OrderDetails 
+            SET Quantity = @Quantity,
+                LineTotal = @LineTotal
+            WHERE OrderDetailId = @OrderDetailId";
+
+                DataProvider.ExecuteNonQuery(
+                    updateQuery,
+                    new SqlParameter[]
+                    {
+                new SqlParameter("@Quantity", newQty),
+                new SqlParameter("@LineTotal", newLineTotal),
+                new SqlParameter("@OrderDetailId", existingId)
+                    }
+                );
+            }
+            else
+            {
+                string insertQuery = @"
+            INSERT INTO OrderDetails (OrderId, ProductId, Quantity, UnitPrice, LineTotal)
+            VALUES (@OrderId, @ProductId, @Quantity, @UnitPrice, @LineTotal)";
+
+                DataProvider.ExecuteNonQuery(
+                    insertQuery,
+                    new SqlParameter[]
+                    {
+                new SqlParameter("@OrderId", orderId),
+                new SqlParameter("@ProductId", productId),
+                new SqlParameter("@Quantity", quantity),
+                new SqlParameter("@UnitPrice", unitPrice),
+                new SqlParameter("@LineTotal", quantity * unitPrice)
+                    }
+                );
+            }
         }
 
         public DataTable GetDetails(int orderId)
         {
             string query = @"
-                SELECT 
-                    p.ProductName,
-                    d.Quantity,
-                    d.UnitPrice,
-                    d.LineTotal
-                FROM OrderDetails d
-                JOIN Products p ON d.ProductId = p.ProductId
-                WHERE d.OrderId = @OrderId";
+        SELECT 
+            d.OrderDetailId,
+            p.ProductName,
+            d.Quantity,
+            d.UnitPrice,
+            d.LineTotal
+        FROM OrderDetails d
+        JOIN Products p ON d.ProductId = p.ProductId
+        WHERE d.OrderId = @OrderId";
 
             return DataProvider.ExecuteQuery(
                 query,
-                new SqlParameter[]
-                {
-                    new SqlParameter("@OrderId", orderId)
-                }
+                new SqlParameter[] { new SqlParameter("@OrderId", orderId) }
             );
         }
 
@@ -141,24 +178,19 @@ namespace quanlyquancafe.DAL
         public int GetActiveOrderId(int tableId)
         {
             string query = @"
-                SELECT OrderId 
-                FROM Orders 
-                WHERE TableId = @tableId 
-                AND OrderStatus = N'Pending'
-            ";
+        SELECT TOP 1 OrderId 
+        FROM Orders 
+        WHERE TableId = @tableId 
+        AND OrderStatus = N'Pending'
+        ORDER BY CreatedAt DESC";  
 
             DataTable dt = DataProvider.ExecuteQuery(
                 query,
-                new SqlParameter[]
-                {
-                    new SqlParameter("@tableId", tableId)
-                }
+                new SqlParameter[] { new SqlParameter("@tableId", tableId) }
             );
 
             if (dt.Rows.Count > 0)
-            {
                 return Convert.ToInt32(dt.Rows[0]["OrderId"]);
-            }
 
             return -1;
         }

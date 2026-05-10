@@ -83,5 +83,10 @@ namespace quanlyquancafe
                 btnDelete.Enabled = true;
             }
         }
+
+        private void dgvTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

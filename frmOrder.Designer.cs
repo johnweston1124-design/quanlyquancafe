@@ -17,6 +17,10 @@
         {
             this.pnlLeft = new System.Windows.Forms.Panel();
             this.dgvOrderDetail = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPayment = new System.Windows.Forms.Button();
@@ -26,10 +30,6 @@
             this.lblTableSelected = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetail)).BeginInit();
             this.pnlRight.SuspendLayout();
@@ -63,6 +63,42 @@
             this.dgvOrderDetail.Size = new System.Drawing.Size(500, 390);
             this.dgvOrderDetail.TabIndex = 0;
             this.dgvOrderDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetail_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ProductName";
+            this.Column1.HeaderText = "Tên";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Quantity";
+            this.Column2.HeaderText = "Số lượng";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "UnitPrice";
+            this.Column3.HeaderText = "Giá";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 125;
+            // 
+            // colStatus
+            // 
+            this.colStatus.DataPropertyName = "OrderStatus";
+            this.colStatus.HeaderText = "Trạng Thái";
+            this.colStatus.MinimumWidth = 6;
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
+            this.colStatus.Width = 125;
             // 
             // pnlRight
             // 
@@ -112,9 +148,9 @@
             // flpProductList
             // 
             this.flpProductList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpProductList.Location = new System.Drawing.Point(0, 24);
+            this.flpProductList.Location = new System.Drawing.Point(0, 27);
             this.flpProductList.Name = "flpProductList";
-            this.flpProductList.Size = new System.Drawing.Size(300, 366);
+            this.flpProductList.Size = new System.Drawing.Size(300, 363);
             this.flpProductList.TabIndex = 1;
             this.flpProductList.Paint += new System.Windows.Forms.PaintEventHandler(this.flpProductList_Paint);
             // 
@@ -124,7 +160,7 @@
             this.cboCategorySelect.FormattingEnabled = true;
             this.cboCategorySelect.Location = new System.Drawing.Point(0, 0);
             this.cboCategorySelect.Name = "cboCategorySelect";
-            this.cboCategorySelect.Size = new System.Drawing.Size(300, 24);
+            this.cboCategorySelect.Size = new System.Drawing.Size(300, 27);
             this.cboCategorySelect.TabIndex = 0;
             // 
             // lblTableSelected
@@ -134,7 +170,7 @@
             this.lblTableSelected.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTableSelected.Location = new System.Drawing.Point(640, 9);
             this.lblTableSelected.Name = "lblTableSelected";
-            this.lblTableSelected.Size = new System.Drawing.Size(168, 25);
+            this.lblTableSelected.Size = new System.Drawing.Size(53, 28);
             this.lblTableSelected.TabIndex = 0;
             this.lblTableSelected.Text = "Bàn:";
             this.lblTableSelected.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -158,42 +194,7 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(800, 60);
             this.pnlHeader.TabIndex = 2;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "ProductName";
-            this.Column1.HeaderText = "Tên";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Quantity";
-            this.Column2.HeaderText = "Số lượng";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "UnitPrice";
-            this.Column3.HeaderText = "Giá";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 125;
-            // 
-            // colStatus
-            // 
-            this.colStatus.DataPropertyName = "OrderStatus";
-            this.colStatus.HeaderText = "Trạng Thái";
-            this.colStatus.MinimumWidth = 6;
-            this.colStatus.Name = "colStatus";
-            this.colStatus.ReadOnly = true;
-            this.colStatus.Width = 125;
+            this.pnlHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHeader_Paint);
             // 
             // frmOrder
             // 

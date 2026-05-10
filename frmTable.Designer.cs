@@ -72,6 +72,7 @@
             this.dgvTable.Size = new System.Drawing.Size(933, 538);
             this.dgvTable.TabIndex = 0;
             this.dgvTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTable_CellClick);
+            this.dgvTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTable_CellContentClick);
             // 
             // colID
             // 
