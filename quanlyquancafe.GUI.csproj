@@ -143,16 +143,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\Dell\source\repos\quanlyquancafe.BLL\quanlyquancafe.BLL.csproj">
-      <Project>{020a62fb-7c2d-4e89-956f-1301521af756}</Project>
-      <Name>quanlyquancafe.BLL</Name>
-    </ProjectReference>
     <ProjectReference Include="C:\Users\Dell\source\repos\quanlyquancafe.DAL\quanlyquancafe.DAL.csproj">
       <Project>{95a45d4e-4352-fb37-c1d6-c87c84d85369}</Project>
       <Name>quanlyquancafe.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Dell\source\repos\quanlyquancafe.DTO\quanlyquancafe.DTO.csproj">
-      <Project>{b0fe323f-4677-4968-9cc3-dcbe259372c2}</Project>
+    <ProjectReference Include="quanlyquancafe.BLL\quanlyquancafe.BLL.csproj">
+      <Project>{45373f61-5414-0257-1cb1-0ce6f8f62980}</Project>
+      <Name>quanlyquancafe.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="quanlyquancafe.DTO\quanlyquancafe.DTO.csproj">
+      <Project>{42a78d0e-96fd-4bdf-b5c4-c043b5073eaa}</Project>
       <Name>quanlyquancafe.DTO</Name>
     </ProjectReference>
   </ItemGroup>
