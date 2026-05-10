@@ -85,7 +85,7 @@
             "2026"});
             this.cboYear.Location = new System.Drawing.Point(555, 37);
             this.cboYear.Name = "cboYear";
-            this.cboYear.Size = new System.Drawing.Size(121, 27);
+            this.cboYear.Size = new System.Drawing.Size(121, 21);
             this.cboYear.TabIndex = 1;
             // 
             // cboMonth
@@ -108,7 +108,7 @@
             "12"});
             this.cboMonth.Location = new System.Drawing.Point(428, 37);
             this.cboMonth.Name = "cboMonth";
-            this.cboMonth.Size = new System.Drawing.Size(121, 27);
+            this.cboMonth.Size = new System.Drawing.Size(121, 21);
             this.cboMonth.TabIndex = 1;
             // 
             // lblTitle
@@ -117,7 +117,7 @@
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(12, 27);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(308, 37);
+            this.lblTitle.Size = new System.Drawing.Size(241, 30);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "BÁO CÁO DOANH THU";
             // 
@@ -135,9 +135,9 @@
             this.lblFinalTotal.AutoSize = true;
             this.lblFinalTotal.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblFinalTotal.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFinalTotal.Location = new System.Drawing.Point(496, 0);
+            this.lblFinalTotal.Location = new System.Drawing.Point(558, 0);
             this.lblFinalTotal.Name = "lblFinalTotal";
-            this.lblFinalTotal.Size = new System.Drawing.Size(304, 41);
+            this.lblFinalTotal.Size = new System.Drawing.Size(242, 32);
             this.lblFinalTotal.TabIndex = 0;
             this.lblFinalTotal.Text = "TỔNG DOANH THU:";
             this.lblFinalTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -161,7 +161,6 @@
             this.dgvRevenue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRevenue.Location = new System.Drawing.Point(0, 0);
             this.dgvRevenue.Name = "dgvRevenue";
-            this.dgvRevenue.RowHeadersWidth = 51;
             this.dgvRevenue.Size = new System.Drawing.Size(800, 300);
             this.dgvRevenue.TabIndex = 0;
             // 
@@ -169,26 +168,23 @@
             // 
             this.colDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colDate.HeaderText = "Ngày";
-            this.colDate.MinimumWidth = 6;
             this.colDate.Name = "colDate";
             // 
             // colCount
             // 
             this.colCount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colCount.HeaderText = "Số lượng hóa đơn";
-            this.colCount.MinimumWidth = 6;
             this.colCount.Name = "colCount";
             // 
             // colSum
             // 
             this.colSum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colSum.HeaderText = "Doanh thu";
-            this.colSum.MinimumWidth = 6;
             this.colSum.Name = "colSum";
             // 
             // frmRevenueReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pnlData);

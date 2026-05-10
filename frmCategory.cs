@@ -50,10 +50,5 @@ namespace quanlyquancafe.GUI
                 }
             };
         }
-
-        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

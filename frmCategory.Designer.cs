@@ -58,7 +58,7 @@
             this.lblTitle.Location = new System.Drawing.Point(13, 9);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(320, 37);
+            this.lblTitle.Size = new System.Drawing.Size(250, 30);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "DANH MỤC SẢN PHẨM";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -94,23 +94,19 @@
             this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvData.Location = new System.Drawing.Point(0, 0);
             this.dgvData.Name = "dgvData";
-            this.dgvData.RowHeadersWidth = 51;
             this.dgvData.Size = new System.Drawing.Size(933, 538);
             this.dgvData.TabIndex = 0;
-            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             // 
             // colID
             // 
             this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colID.HeaderText = "Mã Danh Mục";
-            this.colID.MinimumWidth = 6;
             this.colID.Name = "colID";
             // 
             // colName
             // 
             this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colName.HeaderText = "Tên Danh Mục";
-            this.colName.MinimumWidth = 6;
             this.colName.Name = "colName";
             // 
             // pnlInput
@@ -209,7 +205,7 @@
             // 
             this.txtCategoryName.Location = new System.Drawing.Point(371, 63);
             this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.Size = new System.Drawing.Size(178, 29);
+            this.txtCategoryName.Size = new System.Drawing.Size(178, 25);
             this.txtCategoryName.TabIndex = 2;
             // 
             // txtCategoryID
@@ -218,7 +214,7 @@
             this.txtCategoryID.Location = new System.Drawing.Point(241, 63);
             this.txtCategoryID.Name = "txtCategoryID";
             this.txtCategoryID.ReadOnly = true;
-            this.txtCategoryID.Size = new System.Drawing.Size(100, 29);
+            this.txtCategoryID.Size = new System.Drawing.Size(100, 25);
             this.txtCategoryID.TabIndex = 1;
             // 
             // label2
@@ -226,7 +222,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(368, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 23);
+            this.label2.Size = new System.Drawing.Size(92, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên danh mục:";
             // 
@@ -235,13 +231,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(238, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 23);
+            this.label1.Size = new System.Drawing.Size(91, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã danh mục:";
             // 
             // frmCategory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(933, 588);
